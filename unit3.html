@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 3 · Energy Quest</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-dot"></span>Energy Quest</a>
+    <div class="navlinks">
+      <a href="index.html">Map</a>
+      <a href="unit3.html" class="current">Unit 3</a>
+      <span class="xp-pill"><span class="bolt">⚡</span><span id="xp-count">0</span> XP</span>
+    </div>
+  </div>
+</nav>
+
+<header class="unit-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Map</a> / Unit 3</div>
+    <h1 style="color:#fff;">Quest 3: Electric-City</h1>
+    <p style="color:rgba(255,255,255,0.75);max-width:640px;">Build the electrical grid of a city, one concept at a time — from atoms to circuits to keeping the lights (safely) on. 8 missions + 1 final challenge.</p>
+
+    <div style="margin-top:14px;">
+      <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:var(--font-mono);margin-right:10px;">LANGUAGE</span>
+      <span class="lang-toggle">
+        <button data-lang-btn="en" class="active">English only</button>
+        <button data-lang-btn="bi">English + 中文</button>
+      </span>
+    </div>
+
+    <div class="energy-meter-wrap">
+      <div class="energy-meter-label"><span>🔋 ENERGY METER</span><span id="energy-meter-pct">0%</span></div>
+      <div class="energy-meter"><div class="energy-meter-fill" id="energy-meter-fill"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap" style="padding-top:36px;">
+  <div class="section-head">
+    <span class="kicker">Mission map</span>
+    <h2>Pick a mission — or go in order</h2>
+    <p style="font-size:0.9rem;">Start on the <strong>Learn</strong> tab if the topic is new, or jump straight to <strong>Challenge</strong> if you just want to test yourself.</p>
+  </div>
+  <div class="mission-map">
+    <a href="#m1" class="mission-card" data-mission-card="1"><span class="m-status"></span><span class="m-icon">⚛️</span><span class="m-num">Mission 1</span><div class="m-title">Charge It Up</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m2" class="mission-card" data-mission-card="2"><span class="m-status"></span><span class="m-icon">🔦</span><span class="m-num">Mission 2</span><div class="m-title">Circuit Basics</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m3" class="mission-card" data-mission-card="3"><span class="m-status"></span><span class="m-icon">⚠️</span><span class="m-num">Mission 3</span><div class="m-title">Short Circuit City</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m4" class="mission-card" data-mission-card="4"><span class="m-status"></span><span class="m-icon">📊</span><span class="m-num">Mission 4</span><div class="m-title">Volt &amp; Amp Squad</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m5" class="mission-card" data-mission-card="5"><span class="m-status"></span><span class="m-icon">🧱</span><span class="m-num">Mission 5</span><div class="m-title">Resistance Zone</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m6" class="mission-card" data-mission-card="6"><span class="m-status"></span><span class="m-icon">🔗</span><span class="m-num">Mission 6</span><div class="m-title">Series Circuits</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m7" class="mission-card" data-mission-card="7"><span class="m-status"></span><span class="m-icon">🔀</span><span class="m-num">Mission 7</span><div class="m-title">Parallel Circuits</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m8" class="mission-card" data-mission-card="8"><span class="m-status"></span><span class="m-icon">🛡️</span><span class="m-num">Mission 8</span><div class="m-title">Electric Safety</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#boss" class="mission-card boss-card" data-mission-card="9"><span class="m-status"></span><span class="m-icon">👑</span><span class="m-num">Final Challenge</span><div class="m-title">Circuit Master</div><span class="m-stars">☆☆☆</span></a>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:20px;">
+  <div class="unit-layout">
+
+    <nav class="side-nav">
+      <a href="#m1">⚛️ M1 Charge It Up</a>
+      <a href="#m2">🔦 M2 Circuit Basics</a>
+      <a href="#m3">⚠️ M3 Short Circuit City</a>
+      <a href="#m4">📊 M4 Volt &amp; Amp Squad</a>
+      <a href="#m5">🧱 M5 Resistance Zone</a>
+      <a href="#m6">🔗 M6 Series Circuits</a>
+      <a href="#m7">🔀 M7 Parallel Circuits</a>
+      <a href="#m8">🛡️ M8 Electric Safety</a>
+      <a href="#skills">🧭 Skill Check</a>
+      <a href="#boss">👑 Final Challenge</a>
+    </nav>
+
+    <main>
+
+      <!-- ============ MISSION 1: CHARGE IT UP ============ -->
+      <section class="lo-block" id="m1">
+        <div class="mission-header-row">
+          <h2>⚛️ Mission 1: Charge It Up <span class="zh zh-inline" style="font-size:0.55em;">電荷</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="1">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m1">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m1">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m1">
+          <p>Every atom is a tiny team of three particles. Electricity is really just about controlling one of them.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 300 200">
+              <circle cx="150" cy="100" r="85" fill="none" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3 4"/>
+              <circle cx="150" cy="100" r="50" fill="none" stroke="var(--line)" stroke-width="1.5" stroke-dasharray="3 4"/>
+              <circle cx="140" cy="95" r="9" fill="var(--coral)"/><text x="140" y="99" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">p+</text>
+              <circle cx="160" cy="100" r="9" fill="var(--ink-soft)"/><text x="160" y="104" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">n</text>
+              <circle cx="148" cy="112" r="9" fill="var(--coral)"/><text x="148" y="116" text-anchor="middle" font-size="8" fill="#fff" font-weight="700">p+</text>
+              <circle cx="150" cy="50" r="6" fill="var(--teal)"/><text x="150" y="35" text-anchor="middle" font-size="9" fill="var(--teal-deep)" font-weight="700">e⁻</text>
+              <circle cx="150" cy="150" r="6" fill="var(--teal)"/>
+              <circle cx="65" cy="100" r="6" fill="var(--teal)"/>
+              <circle cx="235" cy="100" r="6" fill="var(--teal)"/>
+            </svg>
+            <p class="diagram-caption">Protons (+) and neutrons sit in the nucleus; electrons (−) orbit around it. Protons and electrons carry equal and opposite charge.</p>
+          </div>
+
+          <table class="data">
+            <tr><th>Particle</th><th>Charge</th><th>Location</th></tr>
+            <tr><td>Proton</td><td>Positive (+)</td><td>Nucleus</td></tr>
+            <tr><td>Neutron</td><td>No charge (neutral)</td><td>Nucleus</td></tr>
+            <tr><td>Electron</td><td>Negative (−)</td><td>Orbiting the nucleus</td></tr>
+          </table>
+          <div class="callout callout-teal">Electrons are the lightest and the only particle that can move between atoms — this is exactly what "electricity" is: <strong>electrons on the move</strong>.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m1">
+          <div class="quiz" data-mission="1" data-explain="Electrons are the only one of the three particles free to move between atoms, and their movement is what we call electric current.">
+            <div class="quiz-q">Which particle actually moves to create an electric current?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Proton</button>
+              <button class="quiz-opt" data-correct="false">Neutron</button>
+              <button class="quiz-opt" data-correct="true">Electron</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="1" data-explain="Neutrons carry no charge at all — they're electrically neutral, which is exactly how they got their name.">
+            <div class="quiz-q">What charge does a neutron carry?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Positive</button>
+              <button class="quiz-opt" data-correct="false">Negative</button>
+              <button class="quiz-opt" data-correct="true">No charge</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 2: CIRCUIT BASICS ============ -->
+      <section class="lo-block" id="m2">
+        <div class="mission-header-row">
+          <h2>🔦 Mission 2: Circuit Basics <span class="zh zh-inline" style="font-size:0.55em;">電路</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="2">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m2">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m2">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m2">
+          <p>To light a bulb you need two things: a <strong>cell</strong> (the energy source) and a complete, unbroken loop called a <strong>closed circuit</strong>. Break the loop anywhere and the bulb goes out.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 320 160">
+              <rect x="40" y="30" width="240" height="100" fill="none" stroke="var(--ink)" stroke-width="3" rx="4"/>
+              <rect x="20" y="65" width="16" height="30" fill="var(--amber)"/>
+              <text x="28" y="112" text-anchor="middle" font-size="9" fill="var(--ink-soft)">cell</text>
+              <circle cx="280" cy="80" r="16" fill="none" stroke="var(--coral)" stroke-width="2.5"/>
+              <path d="M270 70 L290 90 M290 70 L270 90" stroke="var(--coral)" stroke-width="2"/>
+              <text x="280" y="112" text-anchor="middle" font-size="9" fill="var(--ink-soft)">bulb</text>
+              <rect x="150" y="22" width="30" height="10" fill="var(--bg-dark)" transform="rotate(20 165 27)"/>
+              <text x="165" y="15" text-anchor="middle" font-size="9" fill="var(--ink-soft)">switch (open)</text>
+            </svg>
+            <p class="diagram-caption">This circuit is <strong>open</strong> — the switch breaks the loop, so no current can flow and the bulb stays off.</p>
+          </div>
+
+          <div class="glossary">
+            <div class="gloss-chip"><span class="en">Conductor</span><span class="zh-inline">導體</span><div class="zh">Lets electric current pass through easily — metals like copper.</div></div>
+            <div class="gloss-chip"><span class="en">Insulator</span><span class="zh-inline">絕緣體</span><div class="zh">Blocks current — rubber, plastic, wood.</div></div>
+            <div class="gloss-chip"><span class="en">Switch</span><span class="zh-inline">開關</span><div class="zh">Opens or closes a circuit on purpose.</div></div>
+          </div>
+          <div class="callout callout-amber">You'll need to recognise these circuit symbols: cell, battery, bulb, switch, ammeter, voltmeter, resistor, and rheostat — they're the "alphabet" of circuit diagrams.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m2">
+          <div class="quiz" data-mission="2" data-explain="A cell is the energy source of a circuit — it provides the push (voltage) that drives current around the loop.">
+            <div class="quiz-q">What is the role of a cell in a circuit?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">It is the energy source that drives the current</button>
+              <button class="quiz-opt" data-correct="false">It stores the current permanently</button>
+              <button class="quiz-opt" data-correct="false">It blocks the current from flowing</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="2" data-explain="Rubber and most plastics are insulators — they don't let current pass, which is exactly why they're used to coat wires safely.">
+            <div class="quiz-q">Which of these is an electrical insulator?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Copper wire</button>
+              <button class="quiz-opt" data-correct="true">Rubber</button>
+              <button class="quiz-opt" data-correct="false">Aluminium</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 3: SHORT CIRCUIT CITY ============ -->
+      <section class="lo-block" id="m3">
+        <div class="mission-header-row">
+          <h2>⚠️ Mission 3: Short Circuit City <span class="zh zh-inline" style="font-size:0.55em;">短路</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="3">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m3">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m3">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m3">
+          <p>A <strong>short circuit</strong> happens when current finds a path with almost no resistance — skipping the bulb or appliance entirely.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 320 150">
+              <rect x="40" y="20" width="240" height="90" fill="none" stroke="var(--ink)" stroke-width="3" rx="4"/>
+              <path d="M40 65 L120 65 L120 20" stroke="var(--coral)" stroke-width="3"/>
+              <text x="80" y="55" text-anchor="middle" font-size="9" fill="var(--coral)" font-weight="700">shortcut path</text>
+              <circle cx="230" cy="65" r="14" fill="none" stroke="var(--line)" stroke-width="2"/>
+              <path d="M223 58 L237 72 M237 58 L223 72" stroke="var(--line)" stroke-width="2"/>
+              <text x="230" y="95" text-anchor="middle" font-size="8.5" fill="var(--ink-faint)">bulb skipped</text>
+              <text x="160" y="130" text-anchor="middle" font-size="10" fill="var(--coral)" font-weight="700">⚡ huge current → overheating → fire risk</text>
+            </svg>
+            <p class="diagram-caption">Because there's barely any resistance in the shortcut, a very large current flows — and current heats wires up. That heat is the fire danger.</p>
+          </div>
+
+          <table class="data">
+            <tr><th>Safety device</th><th>What it does</th></tr>
+            <tr><td>Fuse <span class="zh zh-inline" style="font-size:0.85em;">保險絲</span></td><td>A thin wire that melts and breaks the circuit if current gets too high</td></tr>
+            <tr><td>Circuit breaker <span class="zh zh-inline" style="font-size:0.85em;">斷路器</span></td><td>A switch that automatically flips off when current is too high — and can be reset</td></tr>
+          </table>
+          <div class="callout callout-amber">A large current has a heating effect on wires — this is exactly why short circuits are dangerous, and why fuses and circuit breakers exist.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m3">
+          <div class="quiz" data-mission="3" data-explain="With almost no resistance in the shortcut path, an unusually large current flows — and that current heats the wires, which can start a fire.">
+            <div class="quiz-q">Why are short circuits dangerous?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">A very large current flows and heats the wires, risking fire</button>
+              <button class="quiz-opt" data-correct="false">They permanently drain the cell instantly</button>
+              <button class="quiz-opt" data-correct="false">They stop all current from flowing</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="3" data-explain="Unlike a fuse (which melts and must be replaced), a circuit breaker is a switch that trips off and can simply be reset once the fault is fixed.">
+            <div class="quiz-q">What's the advantage of a circuit breaker over a fuse?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">It can be reset and reused instead of being replaced</button>
+              <button class="quiz-opt" data-correct="false">It never needs to interrupt the current</button>
+              <button class="quiz-opt" data-correct="false">It makes the current larger on purpose</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 4: VOLT & AMP SQUAD ============ -->
+      <section class="lo-block" id="m4">
+        <div class="mission-header-row">
+          <h2>📊 Mission 4: Volt &amp; Amp Squad <span class="zh zh-inline" style="font-size:0.55em;">電壓與電流</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="4">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m4">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m4">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m4">
+          <p>Two meters, two different jobs, two different ways of connecting them into a circuit.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 320 160">
+              <rect x="40" y="30" width="240" height="100" fill="none" stroke="var(--ink)" stroke-width="3" rx="4"/>
+              <circle cx="180" cy="30" r="15" fill="#fff" stroke="var(--teal-deep)" stroke-width="2.5"/>
+              <text x="180" y="34" text-anchor="middle" font-size="10" font-weight="700" fill="var(--teal-deep)">A</text>
+              <text x="180" y="12" text-anchor="middle" font-size="8.5" fill="var(--teal-deep)">ammeter — IN the loop (series)</text>
+
+              <circle cx="180" cy="80" r="15" fill="#fff" stroke="var(--amber-deep)" stroke-width="2.5"/>
+              <text x="180" y="84" text-anchor="middle" font-size="10" font-weight="700" fill="var(--amber-deep)">V</text>
+              <path d="M180 65 L180 45 M180 95 L180 115" stroke="var(--amber-deep)" stroke-width="2" stroke-dasharray="3 2"/>
+              <text x="245" y="84" text-anchor="middle" font-size="8.5" fill="var(--amber-deep)">voltmeter — ACROSS a component</text>
+
+              <circle cx="280" cy="80" r="14" fill="none" stroke="var(--coral)" stroke-width="2"/>
+            </svg>
+            <p class="diagram-caption">An ammeter is wired <strong>into</strong> the circuit (in series) to measure current flowing through. A voltmeter is wired <strong>across</strong> a component (in parallel) to measure the voltage drop over it.</p>
+          </div>
+
+          <table class="data">
+            <tr><th>Meter</th><th>Measures</th><th>Unit</th></tr>
+            <tr><td>Ammeter</td><td>Current</td><td>Ampere, A</td></tr>
+            <tr><td>Voltmeter</td><td>Voltage</td><td>Volt, V</td></tr>
+          </table>
+          <div class="callout callout-teal">A battery with a greater voltage pushes harder — it causes a greater current to flow through the same circuit.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m4">
+          <div class="quiz" data-mission="4" data-explain="An ammeter must be part of the same loop the current flows through, so it's connected in series.">
+            <div class="quiz-q">How is an ammeter connected in a circuit?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">In series, as part of the main loop</button>
+              <button class="quiz-opt" data-correct="false">In parallel, across a component</button>
+              <button class="quiz-opt" data-correct="false">It isn't connected to the circuit at all</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="4" data-explain="Voltage is the 'push' driving current — a higher voltage pushes more current through the same circuit, all else being equal.">
+            <div class="quiz-q">If you increase a battery's voltage (keeping the circuit the same), what happens to the current?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">It decreases</button>
+              <button class="quiz-opt" data-correct="true">It increases</button>
+              <button class="quiz-opt" data-correct="false">It stays exactly the same</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 5: RESISTANCE ZONE ============ -->
+      <section class="lo-block" id="m5">
+        <div class="mission-header-row">
+          <h2>🧱 Mission 5: Resistance Zone <span class="zh zh-inline" style="font-size:0.55em;">電阻</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="5">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m5">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m5">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m5">
+          <p><strong>Resistance</strong> is how much a component fights against current flowing through it. More resistance means less current gets through — like a narrower pipe letting through less water.</p>
+
+          <div class="diagram-box" style="max-width:220px;">
+            <svg viewBox="0 0 200 180">
+              <polygon points="20,20 180,20 100,150" fill="none" stroke="var(--ink)" stroke-width="2"/>
+              <line x1="20" y1="86" x2="180" y2="86" stroke="var(--ink)" stroke-width="2"/>
+              <line x1="60" y1="86" x2="100" y2="150" stroke="var(--ink)" stroke-width="2"/>
+              <line x1="140" y1="86" x2="100" y2="150" stroke="var(--ink)" stroke-width="2"/>
+              <text x="100" y="60" text-anchor="middle" font-size="22" font-weight="700" fill="var(--amber-deep)">V</text>
+              <text x="55" y="115" text-anchor="middle" font-size="18" font-weight="700" fill="var(--teal-deep)">I</text>
+              <text x="145" y="115" text-anchor="middle" font-size="18" font-weight="700" fill="var(--coral)">R</text>
+            </svg>
+            <p class="diagram-caption">Cover what you want to find: <b>V = I × R</b>, <b>I = V ÷ R</b>, <b>R = V ÷ I</b>.</p>
+          </div>
+
+          <div class="formula-card">
+            <div class="formula">V = I × R</div>
+            <div class="legend">
+              <div><b>V</b> — voltage, volts (V)</div>
+              <div><b>I</b> — current, amps (A)</div>
+              <div><b>R</b> — resistance, ohms (Ω)</div>
+            </div>
+          </div>
+          <div class="worked">
+            <div class="label">Worked example</div>
+            <p>A circuit has a resistance of 5 Ω and a current of 2 A. What's the voltage?<br>
+            <em>V = I × R = 2 × 5 = </em><strong>10 V</strong></p>
+          </div>
+          <div class="callout callout-amber">Rheostats are variable resistors — sliding them changes resistance on purpose, e.g. to dim a light or change a fan's speed.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m5">
+          <div class="quiz" data-mission="5" data-explain="V = I × R = 3 × 4 = 12 V.">
+            <div class="quiz-q">A component has resistance 4 Ω and current 3 A flows through it. What's the voltage across it?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">7 V</button>
+              <button class="quiz-opt" data-correct="true">12 V</button>
+              <button class="quiz-opt" data-correct="false">1.3 V</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="5" data-explain="Resistance opposes current — the greater the resistance, the smaller the current that can flow for a given voltage.">
+            <div class="quiz-q">If resistance increases (voltage unchanged), what happens to current?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">It decreases</button>
+              <button class="quiz-opt" data-correct="false">It increases</button>
+              <button class="quiz-opt" data-correct="false">It stays the same</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 6: SERIES CIRCUITS ============ -->
+      <section class="lo-block" id="m6">
+        <div class="mission-header-row">
+          <h2>🔗 Mission 6: Series Circuits <span class="zh zh-inline" style="font-size:0.55em;">串聯電路</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="6">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m6">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m6">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m6">
+          <p>In a <strong>series circuit</strong>, everything sits on one single loop — one after another, like beads on a string.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 320 130">
+              <rect x="30" y="20" width="260" height="80" fill="none" stroke="var(--ink)" stroke-width="3" rx="4"/>
+              <circle cx="120" cy="20" r="13" fill="none" stroke="var(--coral)" stroke-width="2.5"/>
+              <circle cx="220" cy="20" r="13" fill="none" stroke="var(--coral)" stroke-width="2.5"/>
+              <text x="70" y="65" text-anchor="middle" font-size="10" fill="var(--teal-deep)" font-weight="700">I →</text>
+              <text x="170" y="115" text-anchor="middle" font-size="10" fill="var(--teal-deep)" font-weight="700">same I →</text>
+              <text x="260" y="65" text-anchor="middle" font-size="10" fill="var(--teal-deep)" font-weight="700">I →</text>
+            </svg>
+            <p class="diagram-caption">There's only one path, so the same current <strong>I</strong> flows through every point in the loop — including through both bulbs.</p>
+          </div>
+
+          <div class="callout callout-teal">If one bulb in a series circuit breaks or is removed, the whole loop is broken — <strong>every</strong> bulb goes out. That's the big downside of series wiring.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m6">
+          <div class="quiz" data-mission="6" data-explain="In a series circuit there's only one possible path for current, so the same current flows through every component in the loop.">
+            <div class="quiz-q">In a series circuit, how does the current compare at different points in the loop?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">It's the same everywhere</button>
+              <button class="quiz-opt" data-correct="false">It's larger near the cell</button>
+              <button class="quiz-opt" data-correct="false">It's larger near the bulbs</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="6" data-explain="Since there's only one loop, removing or breaking any single component breaks the entire circuit — every bulb goes out.">
+            <div class="quiz-q">What happens to the other bulbs if one bulb burns out in a series circuit?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">They all go out too</button>
+              <button class="quiz-opt" data-correct="false">They get brighter</button>
+              <button class="quiz-opt" data-correct="false">Nothing changes</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 7: PARALLEL CIRCUITS ============ -->
+      <section class="lo-block" id="m7">
+        <div class="mission-header-row">
+          <h2>🔀 Mission 7: Parallel Circuits <span class="zh zh-inline" style="font-size:0.55em;">並聯電路</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="7">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m7">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m7">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m7">
+          <p>In a <strong>parallel circuit</strong>, the current splits into separate branches — each with its own path back to the cell.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 320 150">
+              <rect x="30" y="20" width="260" height="100" fill="none" stroke="var(--ink)" stroke-width="3" rx="4"/>
+              <line x1="160" y1="20" x2="160" y2="55" stroke="var(--ink)" stroke-width="3"/>
+              <line x1="100" y1="55" x2="220" y2="55" stroke="var(--ink)" stroke-width="3"/>
+              <line x1="100" y1="55" x2="100" y2="85" stroke="var(--ink)" stroke-width="3"/>
+              <line x1="220" y1="55" x2="220" y2="85" stroke="var(--ink)" stroke-width="3"/>
+              <circle cx="100" cy="98" r="13" fill="none" stroke="var(--coral)" stroke-width="2.5"/>
+              <circle cx="220" cy="98" r="13" fill="none" stroke="var(--coral)" stroke-width="2.5"/>
+              <line x1="100" y1="111" x2="100" y2="120" stroke="var(--ink)" stroke-width="3"/>
+              <line x1="220" y1="111" x2="220" y2="120" stroke="var(--ink)" stroke-width="3"/>
+              <line x1="100" y1="120" x2="220" y2="120" stroke="var(--ink)" stroke-width="3"/>
+              <line x1="160" y1="120" x2="160" y2="120" stroke="var(--ink)" stroke-width="3"/>
+              <text x="160" y="15" text-anchor="middle" font-size="9" fill="var(--teal-deep)" font-weight="700">main loop I = I₁ + I₂</text>
+              <text x="100" y="45" text-anchor="middle" font-size="9" fill="var(--ink-soft)">I₁</text>
+              <text x="220" y="45" text-anchor="middle" font-size="9" fill="var(--ink-soft)">I₂</text>
+            </svg>
+            <p class="diagram-caption">The current in the main loop is the <strong>sum</strong> of the branch currents. The voltage across each branch is the same.</p>
+          </div>
+
+          <table class="data">
+            <tr><th>Series</th><th>Parallel</th></tr>
+            <tr><td>Same current everywhere</td><td>Current splits between branches</td></tr>
+            <tr><td>One bulb breaks → all go out</td><td>One bulb breaks → others stay on</td></tr>
+            <tr><td>Rarely used at home</td><td>Used in home wiring</td></tr>
+          </table>
+          <div class="callout callout-amber">This is exactly why homes use parallel wiring: turning off (or blowing) one appliance shouldn't cut power to the whole house.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m7">
+          <div class="quiz" data-mission="7" data-explain="In a parallel circuit, the current entering the junction splits between the branches, then recombines — so the main loop current equals the sum of the branch currents.">
+            <div class="quiz-q">How does the current in the main loop relate to the branch currents in a parallel circuit?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Main loop current = sum of the branch currents</button>
+              <button class="quiz-opt" data-correct="false">Main loop current is always smaller than any branch</button>
+              <button class="quiz-opt" data-correct="false">They are unrelated</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="7" data-explain="Parallel wiring means each appliance has its own independent path, so one appliance failing or being switched off doesn't affect the others — essential for home wiring.">
+            <div class="quiz-q">Why do homes use parallel circuits instead of series circuits?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">So one broken appliance doesn't cut power to everything else</button>
+              <button class="quiz-opt" data-correct="false">Because parallel circuits use less wire</button>
+              <button class="quiz-opt" data-correct="false">Because parallel circuits can't overheat</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 8: ELECTRIC SAFETY ============ -->
+      <section class="lo-block" id="m8">
+        <div class="mission-header-row">
+          <h2>🛡️ Mission 8: Electric Safety</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="8">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m8">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m8">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m8">
+          <p>Everything you've learned this unit connects to one practical goal: using electricity without getting hurt.</p>
+          <div class="grid grid-3">
+            <div class="card"><h3 style="font-size:1rem;">💧 Keep it dry</h3><p style="font-size:0.88rem;color:var(--ink-soft);">Water conducts electricity — never use electrical devices with wet hands or near water.</p></div>
+            <div class="card"><h3 style="font-size:1rem;">🔌 Don't overload</h3><p style="font-size:0.88rem;color:var(--ink-soft);">Too many devices on one socket can draw too much current and overheat the wiring.</p></div>
+            <div class="card"><h3 style="font-size:1rem;">🧵 Check the cable</h3><p style="font-size:0.88rem;color:var(--ink-soft);">Frayed or damaged insulation exposes bare wire — a shock and fire risk.</p></div>
+          </div>
+          <div class="callout callout-teal">Every safety rule you'll ever see about electricity comes back to two ideas from this unit: <strong>water/damaged insulation lowers resistance</strong> (letting dangerous current flow where it shouldn't), and <strong>too much current generates too much heat</strong>.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m8">
+          <div class="quiz" data-mission="8" data-explain="Water is a conductor, so it creates an unintended path for current — potentially through a person's body, which is extremely dangerous.">
+            <div class="quiz-q">Why is it dangerous to use electrical devices with wet hands?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Water conducts electricity, creating a shock risk</button>
+              <button class="quiz-opt" data-correct="false">Water increases the device's resistance to unsafe levels</button>
+              <button class="quiz-opt" data-correct="false">It has no real effect on safety</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="8" data-explain="Plugging in too many devices draws more current than the wiring is designed for, causing overheating — the same heating effect responsible for short-circuit fires.">
+            <div class="quiz-q">Why is overloading a socket with too many devices dangerous?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">It can draw too much current and overheat the wiring</button>
+              <button class="quiz-opt" data-correct="false">It makes the voltage drop to zero</button>
+              <button class="quiz-opt" data-correct="false">It stops all devices from turning on</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILL CHECK -->
+      <section class="lo-block" id="skills">
+        <div class="mission-header-row"><h2>🧭 Skill Check</h2></div>
+        <p style="font-size:0.94rem;color:var(--ink-soft);">Not scored — just for you. Rate how confident you feel about each skill before the final challenge.</p>
+        <div id="confidence-list">
+          <div class="confidence-row"><div>Describing atom structure (protons, neutrons, electrons)</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Drawing and reading circuit diagrams</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Explaining short circuits and safety devices</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Using ammeters and voltmeters correctly</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Using V = I × R</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Comparing series and parallel circuits</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+        </div>
+      </section>
+
+      <!-- BOSS -->
+      <section class="lo-block" id="boss">
+        <div class="boss-banner">
+          <div class="m-icon">👑</div>
+          <h2 style="color:#fff;">Final Challenge: Circuit Master</h2>
+          <p style="color:rgba(255,255,255,0.75);max-width:520px;margin:0 auto;">Mixed questions from every mission. Beat this and you've earned the Circuit Master badge for Unit 3.</p>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="Electrons are negatively charged and free to move — their movement between atoms is what creates electric current.">
+          <div class="quiz-q">Q1. What is electric current, in terms of particles?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">Protons moving through a wire</button>
+            <button class="quiz-opt" data-correct="true">Electrons moving through a wire</button>
+            <button class="quiz-opt" data-correct="false">Neutrons moving through a wire</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="V = I × R = 5 × 2 = 10 V.">
+          <div class="quiz-q">Q2. Current = 5 A, resistance = 2 Ω. What's the voltage?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">2.5 V</button>
+            <button class="quiz-opt" data-correct="true">10 V</button>
+            <button class="quiz-opt" data-correct="false">7 V</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="In series, everything shares one loop, so the same current flows through every component — this is the defining feature of series wiring.">
+          <div class="quiz-q">Q3. Which circuit type has the same current at every point?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="true">Series</button>
+            <button class="quiz-opt" data-correct="false">Parallel</button>
+            <button class="quiz-opt" data-correct="false">Neither</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="A fuse is designed to melt and break the circuit once current exceeds a safe level, protecting the rest of the circuit from overheating.">
+          <div class="quiz-q">Q4. What is the purpose of a fuse?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="true">To melt and break the circuit if current is too high</button>
+            <button class="quiz-opt" data-correct="false">To increase the voltage of the circuit</button>
+            <button class="quiz-opt" data-correct="false">To store extra electrical energy</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="An ammeter must sit directly in the current's path, so it's wired in series with the component being measured.">
+          <div class="quiz-q">Q5. To measure the current through a bulb, how do you connect the ammeter?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="true">In series with the bulb</button>
+            <button class="quiz-opt" data-correct="false">In parallel with the bulb</button>
+            <button class="quiz-opt" data-correct="false">It doesn't need to be connected</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="badge-shelf">
+          <div class="badge"><div class="icon">⚛️</div>Atom Ace</div>
+          <div class="badge"><div class="icon">🔦</div>Circuit Builder</div>
+          <div class="badge"><div class="icon">🧱</div>Resistance Pro</div>
+          <div class="badge"><div class="icon">🔀</div>Wiring Wizard</div>
+          <div class="badge"><div class="icon">👑</div>Circuit Master</div>
+        </div>
+        <p style="text-align:center;font-size:0.82rem;color:var(--ink-faint);margin-top:10px;">Badges light up once your energy meter hits 100%.</p>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Unit 3 · Electric-City — Energy Quest · <a href="index.html">Back to map</a></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

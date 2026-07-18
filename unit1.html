@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 1 · Energy Quest</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-dot"></span>Energy Quest</a>
+    <div class="navlinks">
+      <a href="index.html">Map</a>
+      <a href="unit1.html" class="current">Unit 1</a>
+      <span class="xp-pill"><span class="bolt">⚡</span><span id="xp-count">0</span> XP</span>
+    </div>
+  </div>
+</nav>
+
+<header class="unit-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Map</a> / Unit 1</div>
+    <h1 style="color:#fff;">Quest 1: Bags of Energy</h1>
+    <p style="color:rgba(255,255,255,0.75);max-width:640px;">Energy is hiding everywhere — in a rolling ball, a stretched rubber band, a lit match. Each mission has two tabs: <strong>📖 Learn</strong> explains the idea with a diagram and a worked example, <strong>🎮 Challenge</strong> is where you earn XP and stars.</p>
+
+    <div style="margin-top:14px;">
+      <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:var(--font-mono);margin-right:10px;">LANGUAGE</span>
+      <span class="lang-toggle">
+        <button data-lang-btn="en" class="active">English only</button>
+        <button data-lang-btn="bi">English + 中文</button>
+      </span>
+    </div>
+
+    <div class="energy-meter-wrap">
+      <div class="energy-meter-label"><span>🔋 ENERGY METER</span><span id="energy-meter-pct">0%</span></div>
+      <div class="energy-meter"><div class="energy-meter-fill" id="energy-meter-fill"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap" style="padding-top:36px;">
+  <div class="section-head">
+    <span class="kicker">Mission map</span>
+    <h2>Pick a mission — or go in order</h2>
+    <p style="font-size:0.9rem;">Start on the <strong>Learn</strong> tab if the topic is new, or jump straight to <strong>Challenge</strong> if you just want to test yourself.</p>
+  </div>
+  <div class="mission-map">
+    <a href="#m1" class="mission-card" data-mission-card="1"><span class="m-status"></span><span class="m-icon">🕵️</span><span class="m-num">Mission 1</span><div class="m-title">Energy Detective</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m2" class="mission-card" data-mission-card="2"><span class="m-status"></span><span class="m-icon">📏</span><span class="m-num">Mission 2</span><div class="m-title">Unit Squad</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m3" class="mission-card" data-mission-card="3"><span class="m-status"></span><span class="m-icon">🏗️</span><span class="m-num">Mission 3</span><div class="m-title">Sky Tower (GPE)</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m4" class="mission-card" data-mission-card="4"><span class="m-status"></span><span class="m-icon">🏎️</span><span class="m-num">Mission 4</span><div class="m-title">Speed Zone (KE)</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m5" class="mission-card" data-mission-card="5"><span class="m-status"></span><span class="m-icon">♻️</span><span class="m-num">Mission 5</span><div class="m-title">Energy Never Dies</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m6" class="mission-card" data-mission-card="6"><span class="m-status"></span><span class="m-icon">🧪</span><span class="m-num">Mission 6</span><div class="m-title">The Efficiency Lab</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m7" class="mission-card" data-mission-card="7"><span class="m-status"></span><span class="m-icon">🔌</span><span class="m-num">Mission 7</span><div class="m-title">Power Grid</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m8" class="mission-card" data-mission-card="8"><span class="m-status"></span><span class="m-icon">🔥</span><span class="m-num">Mission 8</span><div class="m-title">Heat Runners</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#boss" class="mission-card boss-card" data-mission-card="9"><span class="m-status"></span><span class="m-icon">👑</span><span class="m-num">Final Challenge</span><div class="m-title">Energy Master</div><span class="m-stars">☆☆☆</span></a>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:20px;">
+  <div class="unit-layout">
+
+    <nav class="side-nav">
+      <a href="#m1">🕵️ M1 Energy Detective</a>
+      <a href="#m2">📏 M2 Unit Squad</a>
+      <a href="#m3">🏗️ M3 Sky Tower</a>
+      <a href="#m4">🏎️ M4 Speed Zone</a>
+      <a href="#m5">♻️ M5 Energy Never Dies</a>
+      <a href="#m6">🧪 M6 Efficiency Lab</a>
+      <a href="#m7">🔌 M7 Power Grid</a>
+      <a href="#m8">🔥 M8 Heat Runners</a>
+      <a href="#skills">🧭 Skill Check</a>
+      <a href="#boss">👑 Final Challenge</a>
+    </nav>
+
+    <main>
+
+      <!-- ============ MISSION 1 ============ -->
+      <section class="lo-block" id="m1">
+        <div class="mission-header-row">
+          <h2>🕵️ Mission 1: Energy Detective</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="1">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m1">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m1">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m1">
+          <p>Energy isn't something you can see or touch directly — but it's a measurable physical quantity, measured in <strong>joules (J)</strong>. If something "has energy," it means it can do <em>work</em>. There are eight forms you need to recognise:</p>
+
+          <div class="glossary">
+            <div class="gloss-chip"><span class="en">⚡ Electrical</span><span class="zh-inline">電能</span><div class="zh">Carried by electric current — a working bulb has it, a battery alone doesn't (that's chemical energy).</div></div>
+            <div class="gloss-chip"><span class="en">🏃 Kinetic</span><span class="zh-inline">動能</span><div class="zh">Energy of anything moving.</div></div>
+            <div class="gloss-chip"><span class="en">⬆️ Gravitational potential</span><span class="zh-inline">重力位能</span><div class="zh">Stored energy of something raised up.</div></div>
+            <div class="gloss-chip"><span class="en">🧵 Elastic potential</span><span class="zh-inline">彈性位能</span><div class="zh">Stored in something stretched or squashed.</div></div>
+            <div class="gloss-chip"><span class="en">🔥 Thermal</span><span class="zh-inline">熱能</span><div class="zh">Energy from temperature/hotness.</div></div>
+            <div class="gloss-chip"><span class="en">💡 Light</span><span class="zh-inline">光能</span><div class="zh">Carried in light rays, even ones we can't see.</div></div>
+            <div class="gloss-chip"><span class="en">🔊 Sound</span><span class="zh-inline">聲能</span><div class="zh">Carried by vibrations we hear.</div></div>
+            <div class="gloss-chip"><span class="en">🧪 Chemical</span><span class="zh-inline">化學能</span><div class="zh">Stored in fuel — petrol, food, an unlit match.</div></div>
+          </div>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 420 150">
+              <rect x="10" y="55" width="90" height="40" rx="8" fill="var(--bg-dark)"/>
+              <text x="55" y="79" text-anchor="middle" fill="#fff" font-family="IBM Plex Mono, monospace" font-size="12">🔋 Battery</text>
+              <text x="55" y="42" text-anchor="middle" fill="var(--ink-soft)" font-size="11">chemical energy</text>
+
+              <path d="M104 75 L165 75" stroke="var(--amber)" stroke-width="3" marker-end="url(#arrow1)"/>
+
+              <rect x="170" y="55" width="90" height="40" rx="8" fill="var(--bg-dark)"/>
+              <text x="215" y="79" text-anchor="middle" fill="#fff" font-family="IBM Plex Mono, monospace" font-size="12">🔌 Wires</text>
+              <text x="215" y="42" text-anchor="middle" fill="var(--ink-soft)" font-size="11">electrical energy</text>
+
+              <path d="M264 75 L325 75" stroke="var(--teal)" stroke-width="3" marker-end="url(#arrow2)"/>
+
+              <rect x="330" y="55" width="85" height="40" rx="8" fill="var(--bg-dark)"/>
+              <text x="372" y="73" text-anchor="middle" fill="#fff" font-family="IBM Plex Mono, monospace" font-size="12">💡 Bulb</text>
+              <text x="372" y="86" text-anchor="middle" fill="#fff" font-family="IBM Plex Mono, monospace" font-size="9">light + heat</text>
+
+              <defs>
+                <marker id="arrow1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--amber)"/></marker>
+                <marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--teal)"/></marker>
+              </defs>
+            </svg>
+            <p class="diagram-caption">Energy always <strong>transforms</strong> rather than disappearing — a torch turns chemical energy into electrical, then into light and (wasted) heat.</p>
+          </div>
+
+          <div class="callout callout-teal">🕵️ <strong>Detective habit:</strong> whenever you see a device working, ask "what form did the energy start as, and what form is it becoming?" That question answers almost every exam question in this unit.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m1">
+          <div class="callout callout-amber">🕵️ <strong>Detective case:</strong> A phone rings, vibrates, and lights up its screen while the battery slowly drains. How many forms of energy can you name in that one scene — before you look at the cases below?</div>
+
+          <div class="quiz" data-mission="1" data-explain="A ball rolling down a hill loses height, so it loses gravitational potential energy — and gains kinetic energy as it speeds up.">
+            <div class="quiz-q">Case 1: A ball rolls down a hill. Which energy is changing INTO kinetic energy?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Chemical energy</button>
+              <button class="quiz-opt" data-correct="true">Gravitational potential energy</button>
+              <button class="quiz-opt" data-correct="false">Heat energy</button>
+              <button class="quiz-opt" data-correct="false">Elastic potential energy</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="1" data-explain="Coal stores chemical energy. Burning releases it as heat and light.">
+            <div class="quiz-q">Case 2: Coal burns and gives off heat and light. What kind of energy was stored in the coal?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Nuclear</button>
+              <button class="quiz-opt" data-correct="true">Chemical</button>
+              <button class="quiz-opt" data-correct="false">Electrical</button>
+              <button class="quiz-opt" data-correct="false">Thermal</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 2 ============ -->
+      <section class="lo-block" id="m2">
+        <div class="mission-header-row">
+          <h2>📏 Mission 2: Unit Squad</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="2">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m2">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m2">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m2">
+          <p>Every physical quantity needs a squad of two things to be useful: a <strong>symbol</strong> and a <strong>unit</strong>. A quantity without a unit is meaningless — "the box weighs 5" tells you nothing until you add "kg."</p>
+          <table class="data">
+            <tr><th>Quantity</th><th>Symbol</th><th>Standard unit</th></tr>
+            <tr><td>Mass</td><td>m</td><td>kilogram (kg)</td></tr>
+            <tr><td>Time</td><td>t</td><td>second (s)</td></tr>
+            <tr><td>Length</td><td>l</td><td>metre (m)</td></tr>
+            <tr><td>Speed</td><td>v</td><td>m/s</td></tr>
+            <tr><td>Energy</td><td>E</td><td>joule (J)</td></tr>
+          </table>
+          <div class="worked">
+            <div class="label">Worked example — unit conversion</div>
+            <p>Convert 3500 g into kg.<br>
+            <em>Rule:</em> 1000 g = 1 kg, so divide by 1000.<br>
+            3500 ÷ 1000 = <strong>3.5 kg</strong></p>
+          </div>
+          <div class="callout callout-amber">Booklet check: make sure you're comfortable converting mg ↔ g ↔ kg and mm ↔ cm ↔ m — these show up again inside energy calculations later in this unit.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m2">
+          <div class="quiz" data-mission="2" data-explain="Colour can't be measured with a unit — it's a physical quantity's cousin, not the real thing.">
+            <div class="quiz-q">Which of these is NOT a physical quantity?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Frequency of light</button>
+              <button class="quiz-opt" data-correct="true">Colour</button>
+              <button class="quiz-opt" data-correct="false">Mass</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="2" data-explain="1000 g = 1 kg, so 500 g = 0.5 kg.">
+            <div class="quiz-q">Convert: 500 g = ___ kg</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">5 kg</button>
+              <button class="quiz-opt" data-correct="true">0.5 kg</button>
+              <button class="quiz-opt" data-correct="false">50 kg</button>
+              <button class="quiz-opt" data-correct="false">0.05 kg</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 3 ============ -->
+      <section class="lo-block" id="m3">
+        <div class="mission-header-row">
+          <h2>🏗️ Mission 3: Sky Tower <span class="zh zh-inline" style="font-size:0.55em;">重力位能</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="3">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m3">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m3">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m3">
+          <p>You're a crane operator lifting materials up a skyscraper. The higher and heavier the load, the more <strong>Gravitational Potential Energy (GPE)</strong> it stores — energy that's ready to release the moment it falls.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 300 190">
+              <line x1="20" y1="170" x2="280" y2="170" stroke="var(--line)" stroke-width="3"/>
+              <rect x="60" y="30" width="40" height="140" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="3 4"/>
+              <rect x="45" y="14" width="45" height="30" rx="5" fill="var(--amber)"/>
+              <text x="67" y="34" text-anchor="middle" font-size="12" fill="#1B1E3D" font-weight="700">m</text>
+              <line x1="30" y1="44" x2="30" y2="170" stroke="var(--teal-deep)" stroke-width="2"/>
+              <line x1="24" y1="44" x2="36" y2="44" stroke="var(--teal-deep)" stroke-width="2"/>
+              <line x1="24" y1="170" x2="36" y2="170" stroke="var(--teal-deep)" stroke-width="2"/>
+              <text x="14" y="110" text-anchor="middle" font-size="13" fill="var(--teal-deep)" font-weight="700" transform="rotate(-90 14 110)">h</text>
+              <text x="180" y="70" font-family="IBM Plex Mono, monospace" font-size="15" fill="var(--ink)" font-weight="700">GPE = m × g × h</text>
+              <text x="180" y="92" font-size="11" fill="var(--ink-soft)">bigger m or h → bigger GPE</text>
+              <path d="M67 44 L67 165" stroke="var(--coral)" stroke-width="2" stroke-dasharray="2 3" marker-end="url(#arrowfall)"/>
+              <defs><marker id="arrowfall" markerWidth="8" markerHeight="8" refX="4" refY="6" orient="auto"><path d="M0,0 L8,0 L4,7 Z" fill="var(--coral)"/></marker></defs>
+            </svg>
+            <p class="diagram-caption">The mass <strong>m</strong> sits at height <strong>h</strong> above the ground. If released, all that GPE converts into kinetic energy on the way down.</p>
+          </div>
+
+          <div class="formula-card">
+            <div class="formula">GPE = m × g × h</div>
+            <div class="legend">
+              <div><b>GPE</b> — energy, in joules (J)</div>
+              <div><b>m</b> — mass, in kilograms (kg)</div>
+              <div><b>g</b> — gravity, 9.81 m/s² on Earth</div>
+              <div><b>h</b> — height above ground, in metres (m)</div>
+            </div>
+          </div>
+
+          <div class="worked">
+            <div class="label">Worked example — step by step</div>
+            <p>A crane lifts 1500 g of concrete to the top of a 20 m building. How much GPE does it gain?</p>
+            <p>
+              <em>Step 1 — list the given values:</em> m = 1500 g, g = 9.81 m/s², h = 20 m<br>
+              <em>Step 2 — convert units:</em> 1500 g = 1.5 kg<br>
+              <em>Step 3 — plug into the formula:</em> GPE = 1.5 × 9.81 × 20<br>
+              <em>Step 4 — calculate:</em> GPE = <strong>294.3 J</strong>
+            </p>
+          </div>
+          <div class="practice">
+            <strong>Try it yourself (paper &amp; pencil):</strong> John (50 kg) is suspended 50 m above the ground. How much GPE does he have?
+          </div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m3">
+          <div class="quiz" data-mission="3" data-explain="GPE = m × g × h = 75 × 9.81 × 300 = 220,725 J ≈ 220.7 kJ.">
+            <div class="quiz-q">A 75 kg crate is lifted 300 m up a tower. What's its GPE? (g = 9.81)</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">2,943 J</button>
+              <button class="quiz-opt" data-correct="false">22,500 J</button>
+              <button class="quiz-opt" data-correct="true">≈ 220,725 J</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="3" data-explain="Doubling the height doubles GPE, since GPE is directly proportional to height in the formula.">
+            <div class="quiz-q">If you double an object's height (mass unchanged), what happens to its GPE?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">It stays the same</button>
+              <button class="quiz-opt" data-correct="true">It doubles</button>
+              <button class="quiz-opt" data-correct="false">It quadruples</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 4 ============ -->
+      <section class="lo-block" id="m4">
+        <div class="mission-header-row">
+          <h2>🏎️ Mission 4: Speed Zone <span class="zh zh-inline" style="font-size:0.55em;">動能</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="4">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m4">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m4">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m4">
+          <p>Welcome to the Speed Zone. Every moving object carries <strong>Kinetic Energy (KE)</strong> — and speed matters far more than mass does.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 320 130">
+              <line x1="10" y1="105" x2="310" y2="105" stroke="var(--line)" stroke-width="3"/>
+              <line x1="30" y1="80" x2="65" y2="80" stroke="var(--ink-faint)" stroke-width="2" stroke-dasharray="6 4"/>
+              <line x1="30" y1="65" x2="55" y2="65" stroke="var(--ink-faint)" stroke-width="2" stroke-dasharray="6 4"/>
+              <rect x="70" y="78" width="46" height="27" rx="6" fill="var(--teal)"/>
+              <text x="93" y="96" text-anchor="middle" font-size="11" fill="#0C2723" font-weight="700">m</text>
+              <path d="M120 91 L175 91" stroke="var(--amber)" stroke-width="3" marker-end="url(#arrowv)"/>
+              <text x="147" y="80" text-anchor="middle" font-size="12" fill="var(--amber-deep)" font-weight="700">v</text>
+              <text x="220" y="65" font-family="IBM Plex Mono, monospace" font-size="15" fill="var(--ink)" font-weight="700">KE = ½ × m × v²</text>
+              <text x="220" y="88" font-size="11" fill="var(--ink-soft)">double v → 4× the KE</text>
+              <defs><marker id="arrowv" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--amber)"/></marker></defs>
+            </svg>
+            <p class="diagram-caption">The motion lines behind the block show it's already moving at speed <strong>v</strong> — that's what gives it kinetic energy.</p>
+          </div>
+
+          <div class="formula-card">
+            <div class="formula">KE = ½ × m × v²</div>
+            <div class="legend">
+              <div><b>KE</b> — joules (J)</div>
+              <div><b>m</b> — mass, kg</div>
+              <div><b>v</b> — speed, m/s</div>
+            </div>
+          </div>
+          <div class="worked">
+            <div class="label">Worked example — step by step</div>
+            <p>A 2 kg ball moves at 4 m/s. Find its KE.</p>
+            <p>
+              <em>Step 1:</em> m = 2 kg, v = 4 m/s<br>
+              <em>Step 2:</em> KE = ½ × 2 × 4²<br>
+              <em>Step 3:</em> 4² = 16, so KE = ½ × 2 × 16<br>
+              <em>Step 4:</em> KE = <strong>16 J</strong>
+            </p>
+          </div>
+          <div class="callout callout-teal">Because <strong>v</strong> is squared, speed has a much bigger effect on KE than mass does — this is exactly why car crashes get so much more dangerous at higher speeds.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m4">
+          <div class="quiz" data-mission="4" data-explain="Speed is squared in the formula, so doubling speed quadruples KE — this is why crashes at higher speed are so much more dangerous.">
+            <div class="quiz-q">A car doubles its speed. What happens to its kinetic energy?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">It doubles</button>
+              <button class="quiz-opt" data-correct="true">It quadruples (×4)</button>
+              <button class="quiz-opt" data-correct="false">It stays the same</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="4" data-explain="KE = ½ × 10 × 6² = ½ × 10 × 36 = 180 J.">
+            <div class="quiz-q">A 10 kg dog runs at 6 m/s. What's its KE?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">60 J</button>
+              <button class="quiz-opt" data-correct="true">180 J</button>
+              <button class="quiz-opt" data-correct="false">360 J</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 5 ============ -->
+      <section class="lo-block" id="m5">
+        <div class="mission-header-row">
+          <h2>♻️ Mission 5: Energy Never Dies <span class="zh zh-inline" style="font-size:0.55em;">能量守恆定律</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="5">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m5">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m5">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m5">
+          <div class="callout callout-teal"><strong>Law of conservation of energy:</strong> energy can't be created or destroyed — only changed from one form to another. Total energy in an isolated system stays constant.</div>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 360 190">
+              <path d="M40 30 Q180 190 320 30" fill="none" stroke="var(--line)" stroke-width="2" stroke-dasharray="4 5"/>
+              <circle cx="40" cy="30" r="11" fill="var(--amber)"/>
+              <circle cx="180" cy="150" r="11" fill="var(--teal)"/>
+              <circle cx="320" cy="30" r="11" fill="var(--amber)"/>
+              <text x="40" y="16" text-anchor="middle" font-size="10.5" fill="var(--amber-deep)" font-weight="700">GPE max</text>
+              <text x="40" y="55" text-anchor="middle" font-size="9.5" fill="var(--ink-faint)">KE = 0</text>
+              <text x="180" y="176" text-anchor="middle" font-size="10.5" fill="var(--teal-deep)" font-weight="700">KE max</text>
+              <text x="180" y="127" text-anchor="middle" font-size="9.5" fill="var(--ink-faint)">GPE = 0</text>
+              <text x="320" y="16" text-anchor="middle" font-size="10.5" fill="var(--amber-deep)" font-weight="700">GPE max</text>
+              <text x="320" y="55" text-anchor="middle" font-size="9.5" fill="var(--ink-faint)">KE = 0</text>
+              <line x1="180" y1="8" x2="180" y2="150" stroke="var(--ink-faint)" stroke-width="1" stroke-dasharray="2 3"/>
+            </svg>
+            <p class="diagram-caption">A swinging pendulum: energy swaps between GPE (at the highest points) and KE (at the bottom) — the total never changes.</p>
+          </div>
+
+          <p>For something falling or swinging freely (ignoring air resistance), GPE lost turns into KE gained:</p>
+          <div class="formula-card">
+            <div class="formula">gh<sub>i</sub> + ½v<sub>i</sub>² = gh<sub>f</sub> + ½v<sub>f</sub>²</div>
+            <div class="legend"><div>Initial height/speed on the left, final height/speed on the right.</div></div>
+          </div>
+          <div class="worked">
+            <div class="label">Worked example</div>
+            <p>The Longtan Dam is 261 m tall. Find the speed of water at the bottom (starting speed = 0).</p>
+            <p>
+              <em>Step 1:</em> gh<sub>i</sub> = ½v<sub>f</sub>² (all GPE converts to KE)<br>
+              <em>Step 2:</em> 9.81 × 261 = ½ × v<sub>f</sub>²<br>
+              <em>Step 3:</em> 2560.4 = ½ × v<sub>f</sub>² → v<sub>f</sub>² = 5120.8<br>
+              <em>Step 4:</em> v<sub>f</sub> = <strong>≈ 71.6 m/s</strong>
+            </p>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m5">
+          <div class="quiz" data-mission="5" data-explain="Energy is never destroyed — it transforms. A bouncing ball loses height each bounce because energy converts to heat and sound, not because it disappears.">
+            <div class="quiz-q">A bouncy ball bounces lower and lower each time. Where does the "missing" energy actually go?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">It disappears completely</button>
+              <button class="quiz-opt" data-correct="true">It transforms into heat and sound energy</button>
+              <button class="quiz-opt" data-correct="false">It turns into mass</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="5" data-explain="This is the definition of the law of conservation of energy.">
+            <div class="quiz-q">In an isolated system, what stays constant?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Only kinetic energy</button>
+              <button class="quiz-opt" data-correct="false">Only potential energy</button>
+              <button class="quiz-opt" data-correct="true">Total energy</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 6 ============ -->
+      <section class="lo-block" id="m6">
+        <div class="mission-header-row">
+          <h2>🧪 Mission 6: The Efficiency Lab <span class="zh zh-inline" style="font-size:0.55em;">效率</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="6">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m6">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m6">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m6">
+          <p>In the lab, every device you test wastes some energy — usually as heat. A <strong>Sankey diagram</strong> shows this visually: the width of each arrow shows how much energy it carries.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 380 170">
+              <polygon points="10,50 140,40 140,90 10,80" fill="var(--bg-dark)"/>
+              <text x="70" y="70" text-anchor="middle" font-size="12" fill="#fff" font-weight="700">750 J in</text>
+
+              <polygon points="140,40 300,20 300,50 140,90" fill="var(--teal)"/>
+              <text x="220" y="42" text-anchor="middle" font-size="11.5" fill="#0C2723" font-weight="700">150 J useful (light)</text>
+
+              <polygon points="140,90 300,110 300,150 140,90" fill="var(--coral)" opacity="0.85"/>
+              <text x="220" y="128" text-anchor="middle" font-size="11.5" fill="#fff" font-weight="700">600 J wasted (heat)</text>
+            </svg>
+            <p class="diagram-caption">Straight arrow = useful output. Downward arrow = wasted energy. Here: 750 J in, only 150 J comes out as useful light — the rest is wasted heat.</p>
+          </div>
+
+          <div class="formula-card">
+            <div class="formula">Efficiency = useful output ÷ total input × 100%</div>
+          </div>
+          <div class="worked">
+            <div class="label">Worked example</div>
+            <p>Using the diagram above: efficiency = 150 ÷ 750 × 100% = <strong>20%</strong></p>
+          </div>
+          <table class="data">
+            <tr><th>Device</th><th>Typical efficiency</th></tr>
+            <tr><td>Filament lamp</td><td>~2%</td></tr>
+            <tr><td>LED light</td><td>~20%</td></tr>
+            <tr><td>Car engine</td><td>~20%</td></tr>
+          </table>
+          <div class="callout callout-amber">Notice none of these are 100%. Every real device wastes some energy — mostly as heat. That's exactly why "more efficient systems" (this unit's big idea) matters so much to engineers.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m6">
+          <div class="quiz" data-mission="6" data-explain="150 ÷ 750 × 100% = 20%.">
+            <div class="quiz-q">Lab test: a device takes in 750 J and usefully outputs 150 J. Efficiency?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">5%</button>
+              <button class="quiz-opt" data-correct="true">20%</button>
+              <button class="quiz-opt" data-correct="false">75%</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="6" data-explain="No real machine is 100% efficient — some energy always converts to heat through friction, resistance, or sound.">
+            <div class="quiz-q">Why is no real device ever 100% efficient?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Some energy always escapes as waste heat/sound</button>
+              <button class="quiz-opt" data-correct="false">Efficiency formulas are only estimates</button>
+              <button class="quiz-opt" data-correct="false">100% efficiency is illegal to build</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 7 ============ -->
+      <section class="lo-block" id="m7">
+        <div class="mission-header-row">
+          <h2>🔌 Mission 7: Power Grid</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="7">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m7">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m7">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m7">
+          <p>Power stations can't create energy — they transform it. A typical fossil-fuel plant follows this chain:</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 400 110">
+              <g font-family="IBM Plex Mono, monospace" font-size="10.5" fill="#fff" text-anchor="middle">
+                <rect x="4" y="30" width="72" height="42" rx="8" fill="var(--bg-dark)"/>
+                <text x="40" y="47" fill="var(--amber)">chemical</text><text x="40" y="60">(fuel)</text>
+                <path d="M78 51 L100 51" stroke="var(--line)" stroke-width="2" marker-end="url(#a7)"/>
+
+                <rect x="104" y="30" width="72" height="42" rx="8" fill="var(--bg-dark)"/>
+                <text x="140" y="47" fill="var(--coral)">thermal</text><text x="140" y="60">(boiler)</text>
+                <path d="M178 51 L200 51" stroke="var(--line)" stroke-width="2" marker-end="url(#a7)"/>
+
+                <rect x="204" y="30" width="72" height="42" rx="8" fill="var(--bg-dark)"/>
+                <text x="240" y="47" fill="var(--teal)">kinetic</text><text x="240" y="60">(steam)</text>
+                <path d="M278 51 L300 51" stroke="var(--line)" stroke-width="2" marker-end="url(#a7)"/>
+
+                <rect x="304" y="30" width="92" height="42" rx="8" fill="var(--bg-dark)"/>
+                <text x="350" y="47" fill="var(--amber)">electrical</text><text x="350" y="60">(generator)</text>
+              </g>
+              <defs><marker id="a7" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker></defs>
+            </svg>
+            <p class="diagram-caption">Chemical → thermal → kinetic → electrical. Every arrow loses a little energy as waste heat along the way.</p>
+          </div>
+
+          <div class="glossary">
+            <div class="gloss-chip"><span class="en">Renewable</span><span class="zh-inline">可再生能源</span><div class="zh">Naturally replenished — solar, wind, hydro, geothermal.</div></div>
+            <div class="gloss-chip"><span class="en">Non-renewable</span><span class="zh-inline">不可再生能源</span><div class="zh">Finite, formed over millions of years — coal, oil, gas.</div></div>
+          </div>
+          <div class="callout callout-teal">Wind and hydro power skip the first two steps entirely — they start straight from kinetic energy (moving air or water), which is one reason they're considered cleaner: no combustion, no chemical-to-thermal step, no CO₂ from burning fuel.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m7">
+          <div class="quiz" data-mission="7" data-explain="Wind turbines start from the kinetic energy of moving air, not from burning stored chemical fuel.">
+            <div class="quiz-q">Which energy source does NOT start its conversion chain with chemical energy?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Coal</button>
+              <button class="quiz-opt" data-correct="false">Natural gas</button>
+              <button class="quiz-opt" data-correct="true">Wind</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="7" data-explain="Sunlight is diffuse (low energy density), so solar farms need a much larger collecting area than a compact fossil-fuel plant burning energy-dense fuel.">
+            <div class="quiz-q">Why do solar farms need much more land than a coal plant of similar output?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Sunlight has low energy density — more area is needed to collect enough</button>
+              <button class="quiz-opt" data-correct="false">Solar panels need to be spread out to stay cool</button>
+              <button class="quiz-opt" data-correct="false">Solar technology is old and inefficient</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 8 ============ -->
+      <section class="lo-block" id="m8">
+        <div class="mission-header-row">
+          <h2>🔥 Mission 8: Heat Runners</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="8">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m8">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m8">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m8">
+          <p>Heat is always racing from hot to cold — by three different routes:</p>
+
+          <div class="diagram-row">
+            <div class="diagram-box" style="margin:0;">
+              <svg viewBox="0 0 140 90">
+                <rect x="10" y="38" width="120" height="14" rx="4" fill="url(#heatgrad)"/>
+                <defs><linearGradient id="heatgrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0" stop-color="var(--coral)"/><stop offset="1" stop-color="var(--teal)"/>
+                </linearGradient></defs>
+                <text x="18" y="30" font-size="9" fill="var(--coral)" font-weight="700">HOT</text>
+                <text x="108" y="30" font-size="9" fill="var(--teal-deep)" font-weight="700">COLD</text>
+                <path d="M20 66 L120 66" stroke="var(--ink-faint)" stroke-width="1.5" stroke-dasharray="3 3" marker-end="url(#am1)"/>
+                <text x="70" y="80" text-anchor="middle" font-size="9" fill="var(--ink-soft)">contact</text>
+                <defs><marker id="am1" markerWidth="7" markerHeight="7" refX="5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="var(--ink-faint)"/></marker></defs>
+              </svg>
+              <p class="diagram-caption"><strong>Conduction</strong> — direct contact, hot end to cold end.</p>
+            </div>
+            <div class="diagram-box" style="margin:0;">
+              <svg viewBox="0 0 140 90">
+                <rect x="15" y="55" width="110" height="18" rx="3" fill="var(--bg-dark)"/>
+                <path d="M40 55 C40 35, 20 35, 20 15" fill="none" stroke="var(--coral)" stroke-width="2" marker-end="url(#am2)"/>
+                <path d="M100 15 C100 35, 120 35, 120 55" fill="none" stroke="var(--teal-deep)" stroke-width="2" marker-end="url(#am2)"/>
+                <text x="70" y="67" text-anchor="middle" font-size="9" fill="#fff">heat</text>
+                <defs><marker id="am2" markerWidth="7" markerHeight="7" refX="5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="var(--ink-faint)"/></marker></defs>
+              </svg>
+              <p class="diagram-caption"><strong>Convection</strong> — hot fluid rises, cool fluid sinks, in a loop.</p>
+            </div>
+            <div class="diagram-box" style="margin:0;">
+              <svg viewBox="0 0 140 90">
+                <circle cx="22" cy="22" r="13" fill="var(--amber)"/>
+                <path d="M42 30 L90 55 M42 20 L95 40 M40 42 L88 68" stroke="var(--amber-deep)" stroke-width="2" marker-end="url(#am3)"/>
+                <rect x="95" y="30" width="12" height="50" fill="var(--bg-dark)"/>
+                <defs><marker id="am3" markerWidth="7" markerHeight="7" refX="5" refY="2.5" orient="auto"><path d="M0,0 L5,2.5 L0,5 Z" fill="var(--amber-deep)"/></marker></defs>
+              </svg>
+              <p class="diagram-caption"><strong>Radiation</strong> — waves travel through empty space, no contact needed.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-3" style="margin-top:16px;">
+            <div class="card"><h3 style="font-size:1rem;">Conduction <span class="zh zh-inline" style="font-size:0.6em;">傳導</span></h3><p style="font-size:0.88rem;color:var(--ink-soft);">Metals conduct well thanks to free electrons that carry heat quickly through the material.</p></div>
+            <div class="card"><h3 style="font-size:1rem;">Convection <span class="zh zh-inline" style="font-size:0.6em;">對流</span></h3><p style="font-size:0.88rem;color:var(--ink-soft);">Hot fluid is less dense and rises; cooler fluid sinks to replace it — this loop is a convection current.</p></div>
+            <div class="card"><h3 style="font-size:1rem;">Radiation <span class="zh zh-inline" style="font-size:0.6em;">輻射</span></h3><p style="font-size:0.88rem;color:var(--ink-soft);">Mainly infrared waves. The only method that works through a vacuum — this is how the Sun heats Earth.</p></div>
+          </div>
+          <div class="callout callout-teal">A vacuum flask uses all three ideas at once: a double wall with vacuum in between (blocks conduction &amp; convection) and a silvery inner surface (blocks radiation).</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m8">
+          <div class="quiz" data-mission="8" data-explain="A vacuum has no particles, so conduction and convection (which both need matter) can't happen — only radiation can cross it.">
+            <div class="quiz-q">Which heat transfer method can travel through empty space (a vacuum)?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Conduction</button>
+              <button class="quiz-opt" data-correct="false">Convection</button>
+              <button class="quiz-opt" data-correct="true">Radiation</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="8" data-explain="Free electrons in metals move quickly and carry thermal energy through the material fast — that's why metals feel cold or hot fast to the touch.">
+            <div class="quiz-q">Why are metals good conductors of heat?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">They have free electrons that carry heat quickly</button>
+              <button class="quiz-opt" data-correct="false">They are always darker in colour</button>
+              <button class="quiz-opt" data-correct="false">They are naturally colder than other materials</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILL CHECK -->
+      <section class="lo-block" id="skills">
+        <div class="mission-header-row"><h2>🧭 Skill Check</h2></div>
+        <p style="font-size:0.94rem;color:var(--ink-soft);">Not scored — just for you. Rate how confident you feel about each skill before the final challenge.</p>
+        <div id="confidence-list">
+          <div class="confidence-row"><div>Naming the 8 forms of energy</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Using the GPE formula</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Using the KE formula</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Explaining conservation of energy</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Calculating efficiency</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Comparing renewable &amp; non-renewable sources</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Explaining conduction, convection, radiation</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+        </div>
+      </section>
+
+      <!-- BOSS -->
+      <section class="lo-block" id="boss">
+        <div class="boss-banner">
+          <div class="m-icon">👑</div>
+          <h2 style="color:#fff;">Final Challenge: Energy Master</h2>
+          <p style="color:rgba(255,255,255,0.75);max-width:520px;margin:0 auto;">Mixed questions from every mission. Beat this and you've earned the Energy Master badge for Unit 1.</p>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="A stretched rubber band stores elastic potential energy, released when it's let go.">
+          <div class="quiz-q">Q1. Which is an example of elastic potential energy?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">A ball held above the ground</button>
+            <button class="quiz-opt" data-correct="true">A stretched rubber band</button>
+            <button class="quiz-opt" data-correct="false">A moving car</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="Nuclear fuel releases energy through nuclear reactions, not chemical combustion — a fundamentally different first step.">
+          <div class="quiz-q">Q2. Which power source does NOT rely on chemical energy as its starting point?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">Coal</button>
+            <button class="quiz-opt" data-correct="false">Natural gas</button>
+            <button class="quiz-opt" data-correct="true">Nuclear fuel</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="GPE = 4 × 9.81 × 5 = 196.2 J.">
+          <div class="quiz-q">Q3. A 4 kg object sits 5 m up. What's its GPE? (g = 9.81)</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">20 J</button>
+            <button class="quiz-opt" data-correct="true">≈ 196 J</button>
+            <button class="quiz-opt" data-correct="false">1962 J</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="KE = ½ × 3 × 5² = 37.5 J.">
+          <div class="quiz-q">Q4. A 3 kg object moves at 5 m/s. What's its KE?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">15 J</button>
+            <button class="quiz-opt" data-correct="true">37.5 J</button>
+            <button class="quiz-opt" data-correct="false">75 J</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="A double-walled vacuum flask uses vacuum to block conduction/convection and a silvered surface to block radiation — all three methods at once.">
+          <div class="quiz-q">Q5. A vacuum flask keeps drinks hot by blocking which heat transfer methods?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">Only conduction</button>
+            <button class="quiz-opt" data-correct="true">Conduction, convection, AND radiation</button>
+            <button class="quiz-opt" data-correct="false">Only radiation</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="badge-shelf">
+          <div class="badge"><div class="icon">🕵️</div>Detective</div>
+          <div class="badge"><div class="icon">🏗️</div>Tower Master</div>
+          <div class="badge"><div class="icon">🏎️</div>Speed Runner</div>
+          <div class="badge"><div class="icon">🧪</div>Lab Expert</div>
+          <div class="badge"><div class="icon">👑</div>Energy Master</div>
+        </div>
+        <p style="text-align:center;font-size:0.82rem;color:var(--ink-faint);margin-top:10px;">Badges light up once your energy meter hits 100%.</p>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Unit 1 · Bags of Energy — Energy Quest · <a href="index.html">Back to map</a></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

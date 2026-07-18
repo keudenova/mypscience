@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 4 · Energy Quest</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-dot"></span>Energy Quest</a>
+    <div class="navlinks">
+      <a href="index.html">Map</a>
+      <a href="unit4.html" class="current">Unit 4</a>
+      <span class="xp-pill"><span class="bolt">⚡</span><span id="xp-count">0</span> XP</span>
+    </div>
+  </div>
+</nav>
+
+<header class="unit-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Map</a> / Unit 4</div>
+    <h1 style="color:#fff;">Quest 4: His Dark Materials</h1>
+    <p style="color:rgba(255,255,255,0.75);max-width:640px;">Crude oil is millions of years old and hiding thousands of different molecules. Split it apart, break it down, and build it back up into the plastics all around you. 8 missions + 1 final challenge.</p>
+
+    <div style="margin-top:14px;">
+      <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:var(--font-mono);margin-right:10px;">LANGUAGE</span>
+      <span class="lang-toggle">
+        <button data-lang-btn="en" class="active">English only</button>
+        <button data-lang-btn="bi">English + 中文</button>
+      </span>
+    </div>
+
+    <div class="energy-meter-wrap">
+      <div class="energy-meter-label"><span>🔋 ENERGY METER</span><span id="energy-meter-pct">0%</span></div>
+      <div class="energy-meter"><div class="energy-meter-fill" id="energy-meter-fill"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap" style="padding-top:36px;">
+  <div class="section-head">
+    <span class="kicker">Mission map</span>
+    <h2>Pick a mission — or go in order</h2>
+    <p style="font-size:0.9rem;">Start on the <strong>Learn</strong> tab if the topic is new, or jump straight to <strong>Challenge</strong> if you just want to test yourself.</p>
+  </div>
+  <div class="mission-map">
+    <a href="#m1" class="mission-card" data-mission-card="1"><span class="m-status"></span><span class="m-icon">🦖</span><span class="m-num">Mission 1</span><div class="m-title">Ancient Swamps</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m2" class="mission-card" data-mission-card="2"><span class="m-status"></span><span class="m-icon">🧪</span><span class="m-num">Mission 2</span><div class="m-title">Naming Hydrocarbons</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m3" class="mission-card" data-mission-card="3"><span class="m-status"></span><span class="m-icon">🏭</span><span class="m-num">Mission 3</span><div class="m-title">Distillation Tower</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m4" class="mission-card" data-mission-card="4"><span class="m-status"></span><span class="m-icon">🔬</span><span class="m-num">Mission 4</span><div class="m-title">Fraction Properties</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m5" class="mission-card" data-mission-card="5"><span class="m-status"></span><span class="m-icon">✂️</span><span class="m-num">Mission 5</span><div class="m-title">Cracking Station</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m6" class="mission-card" data-mission-card="6"><span class="m-status"></span><span class="m-icon">🔗</span><span class="m-num">Mission 6</span><div class="m-title">Polymer Chains</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m7" class="mission-card" data-mission-card="7"><span class="m-status"></span><span class="m-icon">🛍️</span><span class="m-num">Mission 7</span><div class="m-title">Plastic Properties</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m8" class="mission-card" data-mission-card="8"><span class="m-status"></span><span class="m-icon">🌍</span><span class="m-num">Mission 8</span><div class="m-title">Material Choices</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#boss" class="mission-card boss-card" data-mission-card="9"><span class="m-status"></span><span class="m-icon">👑</span><span class="m-num">Final Challenge</span><div class="m-title">Materials Master</div><span class="m-stars">☆☆☆</span></a>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:20px;">
+  <div class="unit-layout">
+
+    <nav class="side-nav">
+      <a href="#m1">🦖 M1 Ancient Swamps</a>
+      <a href="#m2">🧪 M2 Naming Hydrocarbons</a>
+      <a href="#m3">🏭 M3 Distillation Tower</a>
+      <a href="#m4">🔬 M4 Fraction Properties</a>
+      <a href="#m5">✂️ M5 Cracking Station</a>
+      <a href="#m6">🔗 M6 Polymer Chains</a>
+      <a href="#m7">🛍️ M7 Plastic Properties</a>
+      <a href="#m8">🌍 M8 Material Choices</a>
+      <a href="#skills">🧭 Skill Check</a>
+      <a href="#boss">👑 Final Challenge</a>
+    </nav>
+
+    <main>
+
+      <!-- ============ MISSION 1: ANCIENT SWAMPS ============ -->
+      <section class="lo-block" id="m1">
+        <div class="mission-header-row">
+          <h2>🦖 Mission 1: Ancient Swamps</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="1">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m1">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m1">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m1">
+          <p>Crude oil started as tiny sea organisms — plankton and algae — millions of years ago. Buried under mud, heat, and pressure for millions of years, their remains slowly transformed into fossil fuels.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 380 130">
+              <g font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="middle">
+                <rect x="10" y="45" width="80" height="40" rx="8" fill="var(--bg-dark)"/><text x="50" y="68" fill="#fff">🦠 Dead sea life</text>
+                <path d="M94 65 L130 65" stroke="var(--line)" stroke-width="2" marker-end="url(#o1)"/>
+                <rect x="134" y="45" width="80" height="40" rx="8" fill="var(--bg-dark)"/><text x="174" y="68" fill="#fff">Buried in mud</text>
+                <path d="M218 65 L254 65" stroke="var(--line)" stroke-width="2" marker-end="url(#o1)"/>
+                <rect x="258" y="45" width="112" height="40" rx="8" fill="var(--amber)"/><text x="314" y="62" fill="#1B1E3D">Heat + pressure</text><text x="314" y="76" fill="#1B1E3D">(millions of years)</text>
+              </g>
+              <text x="190" y="110" text-anchor="middle" font-size="10.5" fill="var(--ink-soft)">→ crude oil &amp; natural gas, trapped underground</text>
+              <defs><marker id="o1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker></defs>
+            </svg>
+            <p class="diagram-caption">This is why crude oil is called a <strong>fossil fuel</strong> — it's literally made from fossilised ancient life, and it takes millions of years to form (much faster than we use it up).</p>
+          </div>
+
+          <p>Crude oil isn't one single substance — it's a mixture of thousands of different <strong>hydrocarbons</strong>: molecules made only of hydrogen and carbon atoms, in chains of different lengths.</p>
+          <div class="callout callout-teal">Short chains (like methane, 1 carbon) behave very differently from long chains (30+ carbons) — that difference is the whole basis of how we separate crude oil into useful products.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m1">
+          <div class="quiz" data-mission="1" data-explain="Crude oil formed from the buried remains of ancient marine organisms like plankton and algae, transformed by heat and pressure over millions of years.">
+            <div class="quiz-q">What did crude oil originally form from?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Ancient trees and forests</button>
+              <button class="quiz-opt" data-correct="true">Ancient sea organisms like plankton and algae</button>
+              <button class="quiz-opt" data-correct="false">Volcanic rock</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="1" data-explain="Hydrocarbons are molecules made only of hydrogen and carbon atoms — the building blocks that make up crude oil.">
+            <div class="quiz-q">What elements are hydrocarbon molecules made of?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Hydrogen and carbon only</button>
+              <button class="quiz-opt" data-correct="false">Oxygen and nitrogen only</button>
+              <button class="quiz-opt" data-correct="false">Carbon and oxygen only</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 2: NAMING HYDROCARBONS ============ -->
+      <section class="lo-block" id="m2">
+        <div class="mission-header-row">
+          <h2>🧪 Mission 2: Naming Hydrocarbons</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="2">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m2">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m2">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m2">
+          <p>The simplest hydrocarbons are <strong>alkanes</strong> — straight or branched chains where every carbon is joined by single bonds. The name changes based on chain length.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 360 130">
+              <g font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="middle">
+                <circle cx="40" cy="60" r="12" fill="var(--ink)"/><text x="40" y="64" fill="#fff">C</text>
+                <text x="40" y="95" fill="var(--ink-soft)">methane</text><text x="40" y="108" fill="var(--ink-faint)" font-size="8.5">CH₄ (1C)</text>
+
+                <circle cx="120" cy="60" r="12" fill="var(--ink)"/><text x="120" y="64" fill="#fff">C</text>
+                <circle cx="150" cy="60" r="12" fill="var(--ink)"/><text x="150" y="64" fill="#fff">C</text>
+                <line x1="132" y1="60" x2="138" y2="60" stroke="var(--ink)" stroke-width="2"/>
+                <text x="135" y="95" fill="var(--ink-soft)">ethane</text><text x="135" y="108" fill="var(--ink-faint)" font-size="8.5">C₂H₆ (2C)</text>
+
+                <circle cx="220" cy="60" r="12" fill="var(--ink)"/><text x="220" y="64" fill="#fff">C</text>
+                <circle cx="250" cy="60" r="12" fill="var(--ink)"/><text x="250" y="64" fill="#fff">C</text>
+                <circle cx="280" cy="60" r="12" fill="var(--ink)"/><text x="280" y="64" fill="#fff">C</text>
+                <line x1="232" y1="60" x2="238" y2="60" stroke="var(--ink)" stroke-width="2"/>
+                <line x1="262" y1="60" x2="268" y2="60" stroke="var(--ink)" stroke-width="2"/>
+                <text x="250" y="95" fill="var(--ink-soft)">propane</text><text x="250" y="108" fill="var(--ink-faint)" font-size="8.5">C₃H₈ (3C)</text>
+              </g>
+            </svg>
+            <p class="diagram-caption">Each extra carbon added to the chain makes a new molecule with its own name.</p>
+          </div>
+
+          <table class="data">
+            <tr><th>Carbons</th><th>Name</th><th>Formula</th></tr>
+            <tr><td>1</td><td>Methane</td><td>CH₄</td></tr>
+            <tr><td>2</td><td>Ethane</td><td>C₂H₆</td></tr>
+            <tr><td>3</td><td>Propane</td><td>C₃H₈</td></tr>
+            <tr><td>4</td><td>Butane</td><td>C₄H₁₀</td></tr>
+          </table>
+          <div class="callout callout-amber">Notice the pattern: each formula is C<sub>n</sub>H<sub>2n+2</sub>. Try it — for 4 carbons: H = (2×4)+2 = 10. ✓</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m2">
+          <div class="quiz" data-mission="2" data-explain="Propane has 3 carbon atoms — its name comes right after ethane (2 carbons) in the alkane naming sequence.">
+            <div class="quiz-q">How many carbon atoms does propane have?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">2</button>
+              <button class="quiz-opt" data-correct="true">3</button>
+              <button class="quiz-opt" data-correct="false">4</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="2" data-explain="Using CₙH₂ₙ₊₂ with n=5: H = (2×5)+2 = 12, so C₅H₁₂.">
+            <div class="quiz-q">Using the pattern CₙH₂ₙ₊₂, what's the formula for a 5-carbon alkane (pentane)?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">C₅H₁₀</button>
+              <button class="quiz-opt" data-correct="true">C₅H₁₂</button>
+              <button class="quiz-opt" data-correct="false">C₅H₁₄</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 3: DISTILLATION TOWER ============ -->
+      <section class="lo-block" id="m3">
+        <div class="mission-header-row">
+          <h2>🏭 Mission 3: Distillation Tower</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="3">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m3">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m3">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m3">
+          <p>Crude oil is heated until it vaporises, then fed into a tall tower. Different-length hydrocarbons condense back to liquid at different heights, because <strong>longer chains have higher boiling points</strong>.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 260 220">
+              <polygon points="100,10 160,10 190,210 70,210" fill="none" stroke="var(--ink)" stroke-width="2"/>
+              <rect x="75" y="15" width="110" height="28" fill="var(--teal)" opacity="0.85"/><text x="130" y="34" text-anchor="middle" font-size="9" fill="#0C2723">Gases (short chains)</text>
+              <rect x="72" y="48" width="116" height="28" fill="var(--teal)" opacity="0.7"/><text x="130" y="67" text-anchor="middle" font-size="9" fill="#0C2723">Petrol</text>
+              <rect x="69" y="81" width="122" height="28" fill="var(--amber)" opacity="0.8"/><text x="130" y="100" text-anchor="middle" font-size="9" fill="#1B1E3D">Kerosene</text>
+              <rect x="66" y="114" width="128" height="28" fill="var(--amber)" opacity="0.95"/><text x="130" y="133" text-anchor="middle" font-size="9" fill="#1B1E3D">Diesel</text>
+              <rect x="63" y="147" width="134" height="28" fill="var(--coral)" opacity="0.85"/><text x="130" y="166" text-anchor="middle" font-size="9" fill="#fff">Fuel oil</text>
+              <rect x="60" y="180" width="140" height="26" fill="var(--coral)"/><text x="130" y="198" text-anchor="middle" font-size="9" fill="#fff">Bitumen (long chains)</text>
+              <text x="215" y="20" font-size="8.5" fill="var(--ink-faint)">low b.p.</text>
+              <text x="215" y="205" font-size="8.5" fill="var(--ink-faint)">high b.p.</text>
+              <path d="M205 25 L205 195" stroke="var(--ink-faint)" stroke-width="1.5" marker-end="url(#o3)"/>
+              <defs><marker id="o3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker></defs>
+            </svg>
+            <p class="diagram-caption">Shorter, lighter hydrocarbons rise higher before condensing (low boiling point); longer, heavier ones condense near the bottom (high boiling point).</p>
+          </div>
+
+          <table class="data">
+            <tr><th>Fraction</th><th>Approx. chain length</th><th>Common use</th></tr>
+            <tr><td>Gases</td><td>1–4 carbons</td><td>Cooking gas, heating</td></tr>
+            <tr><td>Petrol</td><td>5–10 carbons</td><td>Car fuel</td></tr>
+            <tr><td>Kerosene</td><td>10–16 carbons</td><td>Jet fuel</td></tr>
+            <tr><td>Diesel</td><td>16–20 carbons</td><td>Trucks, trains</td></tr>
+            <tr><td>Fuel oil</td><td>20–27 carbons</td><td>Ships, power stations</td></tr>
+            <tr><td>Bitumen</td><td>27+ carbons</td><td>Roads, roofing</td></tr>
+          </table>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m3">
+          <div class="quiz" data-mission="3" data-explain="Longer hydrocarbon chains have stronger intermolecular forces between molecules, so they need more energy (a higher temperature) to boil and vaporise.">
+            <div class="quiz-q">Why do longer hydrocarbon chains have higher boiling points?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Stronger forces between longer molecules need more energy to overcome</button>
+              <button class="quiz-opt" data-correct="false">Longer molecules are lighter</button>
+              <button class="quiz-opt" data-correct="false">Boiling point has nothing to do with chain length</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="3" data-explain="Gases (short chains, low boiling point) rise to the top of the fractionating column and condense there, since they stay gaseous until the temperature is quite low.">
+            <div class="quiz-q">Where in the distillation tower do gases (short-chain hydrocarbons) condense?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Near the top</button>
+              <button class="quiz-opt" data-correct="false">Near the bottom</button>
+              <button class="quiz-opt" data-correct="false">They don't condense at all</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 4: FRACTION PROPERTIES ============ -->
+      <section class="lo-block" id="m4">
+        <div class="mission-header-row">
+          <h2>🔬 Mission 4: Fraction Properties Lab</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="4">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m4">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m4">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m4">
+          <p>Chain length doesn't just affect boiling point — it changes almost everything about how a fraction behaves.</p>
+          <table class="data">
+            <tr><th>Property</th><th>Short chains (e.g. petrol)</th><th>Long chains (e.g. bitumen)</th></tr>
+            <tr><td>Colour</td><td>Pale / colourless</td><td>Dark</td></tr>
+            <tr><td>Viscosity</td><td>Runny (flows easily)</td><td>Thick, sticky</td></tr>
+            <tr><td>Ease of evaporation</td><td>Evaporates easily</td><td>Barely evaporates</td></tr>
+            <tr><td>Flammability</td><td>Ignites easily</td><td>Hard to ignite</td></tr>
+            <tr><td>Flame sootiness</td><td>Clean flame</td><td>Smoky, sooty flame</td></tr>
+          </table>
+          <div class="callout callout-teal">All of these trends have the same root cause: longer molecules have stronger intermolecular forces holding them together and tangled up, making them harder to move, evaporate, or burn cleanly.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m4">
+          <div class="quiz" data-mission="4" data-explain="Short-chain fractions like petrol are runny and flow easily — long chains like bitumen are thick and sticky (high viscosity).">
+            <div class="quiz-q">Which fraction would you expect to be the most viscous (thickest)?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Petrol</button>
+              <button class="quiz-opt" data-correct="false">Kerosene</button>
+              <button class="quiz-opt" data-correct="true">Bitumen</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="4" data-explain="Long-chain fractions don't burn completely, producing more unburned carbon particles — visible as soot and smoke.">
+            <div class="quiz-q">Why do long-chain fractions burn with a smokier, sootier flame than short chains?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">They don't combust as completely, leaving unburned carbon particles</button>
+              <button class="quiz-opt" data-correct="false">They contain more oxygen</button>
+              <button class="quiz-opt" data-correct="false">They are colder when burning</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 5: CRACKING STATION ============ -->
+      <section class="lo-block" id="m5">
+        <div class="mission-header-row">
+          <h2>✂️ Mission 5: Cracking Station</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="5">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m5">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m5">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m5">
+          <p>Distillation gives us more long-chain fractions than people actually want, and not enough short chains like petrol. <strong>Cracking</strong> fixes that mismatch by breaking long chains into shorter, more useful ones.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 340 110">
+              <g font-family="IBM Plex Mono, monospace" font-size="10" text-anchor="middle">
+                <rect x="10" y="35" width="150" height="34" rx="8" fill="var(--coral)" opacity="0.85"/><text x="85" y="57" fill="#fff">long-chain hydrocarbon</text>
+                <path d="M164 52 L200 52" stroke="var(--ink-faint)" stroke-width="2" marker-end="url(#o5)"/>
+                <text x="182" y="42" font-size="8.5" fill="var(--ink-soft)">heat + catalyst</text>
+                <rect x="204" y="20" width="60" height="30" rx="6" fill="var(--teal)"/><text x="234" y="39" fill="#0C2723">shorter alkane</text>
+                <rect x="204" y="58" width="120" height="30" rx="6" fill="var(--amber)"/><text x="264" y="77" fill="#1B1E3D">short alkene (new C=C bond)</text>
+              </g>
+              <defs><marker id="o5" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker></defs>
+            </svg>
+            <p class="diagram-caption">Heat (and a catalyst) breaks one long-chain molecule into two smaller ones — typically a shorter alkane plus a small, reactive alkene.</p>
+          </div>
+
+          <div class="callout callout-amber">Why bother? There's high demand for short-chain products (petrol, plastics feedstock) but crude oil naturally contains more long chains than we need. Cracking converts "too much of one thing" into "just enough of what's needed."</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m5">
+          <div class="quiz" data-mission="5" data-explain="Cracking breaks long-chain hydrocarbons into shorter, more useful molecules like petrol — matching supply to what's actually in demand.">
+            <div class="quiz-q">What does cracking do to a long-chain hydrocarbon?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Breaks it into shorter, more useful molecules</button>
+              <button class="quiz-opt" data-correct="false">Joins it to another long chain</button>
+              <button class="quiz-opt" data-correct="false">Removes all the hydrogen atoms</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="5" data-explain="Distillation alone produces more long-chain fractions than there's demand for, and not enough short chains like petrol — cracking rebalances the supply.">
+            <div class="quiz-q">Why is cracking carried out at all?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Demand for short-chain products is higher than distillation alone can supply</button>
+              <button class="quiz-opt" data-correct="false">It removes impurities from crude oil</button>
+              <button class="quiz-opt" data-correct="false">It's required before distillation can happen</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 6: POLYMER CHAINS ============ -->
+      <section class="lo-block" id="m6">
+        <div class="mission-header-row">
+          <h2>🔗 Mission 6: Polymer Chains</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="6">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m6">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m6">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m6">
+          <p><strong>Polymerisation</strong> is the joining of many small molecules (monomers) — often the small alkenes made by cracking — into one giant chain molecule (a polymer).</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 360 100">
+              <g font-family="IBM Plex Mono, monospace" font-size="9.5">
+                <rect x="10" y="35" width="30" height="24" rx="4" fill="var(--amber)"/>
+                <rect x="46" y="35" width="30" height="24" rx="4" fill="var(--amber)"/>
+                <rect x="82" y="35" width="30" height="24" rx="4" fill="var(--amber)"/>
+                <text x="60" y="76" text-anchor="middle" fill="var(--ink-soft)">many monomers (e.g. ethene)</text>
+                <path d="M120 47 L160 47" stroke="var(--ink-faint)" stroke-width="2" marker-end="url(#o6)"/>
+                <text x="140" y="37" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">polymerise</text>
+                <rect x="165" y="35" width="185" height="24" rx="12" fill="var(--teal)"/>
+                <text x="257" y="52" text-anchor="middle" fill="#0C2723">one long polymer chain (e.g. polyethene)</text>
+              </g>
+              <defs><marker id="o6" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker></defs>
+            </svg>
+            <p class="diagram-caption">Like a paperclip chain — each monomer "clips" onto the next, forming one long polymer molecule.</p>
+          </div>
+
+          <table class="data">
+            <tr><th>Polymer</th><th>Made from</th><th>Common use</th></tr>
+            <tr><td>Polyethene (PE)</td><td>Ethene</td><td>Plastic bags, bottles</td></tr>
+            <tr><td>Polypropene (PP)</td><td>Propene</td><td>Ropes, food containers</td></tr>
+            <tr><td>Polystyrene (PS)</td><td>Styrene</td><td>Packaging, insulation</td></tr>
+            <tr><td>PVC</td><td>Vinyl chloride</td><td>Pipes, window frames</td></tr>
+          </table>
+          <div class="callout callout-teal">LDPE (low-density polyethene) has loosely tangled, branched chains — soft and flexible, used for bags. HDPE (high-density) has tightly packed, straighter chains — rigid and strong, used for bottles and pipes.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m6">
+          <div class="quiz" data-mission="6" data-explain="Polymerisation is the process where many small monomer molecules join together to form one large polymer chain.">
+            <div class="quiz-q">What is polymerisation?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Many small monomers joining into one long polymer chain</button>
+              <button class="quiz-opt" data-correct="false">Breaking a long chain into smaller pieces</button>
+              <button class="quiz-opt" data-correct="false">Burning a hydrocarbon completely</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="6" data-explain="HDPE has tightly packed, straight chains, giving it more rigidity and strength — ideal for bottles that need to hold their shape.">
+            <div class="quiz-q">Which type of polyethene would be better for making a rigid plastic bottle?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">LDPE — loosely tangled chains</button>
+              <button class="quiz-opt" data-correct="true">HDPE — tightly packed chains</button>
+              <button class="quiz-opt" data-correct="false">Neither type can be rigid</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 7: PLASTIC PROPERTIES ============ -->
+      <section class="lo-block" id="m7">
+        <div class="mission-header-row">
+          <h2>🛍️ Mission 7: Plastic Properties</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="7">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m7">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m7">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m7">
+          <p>Every plastic product is chosen for a reason — its properties match the job it needs to do.</p>
+          <div class="grid grid-3">
+            <div class="card"><h3 style="font-size:1rem;">🛍️ LDPE</h3><p style="font-size:0.88rem;color:var(--ink-soft);">Flexible, lightweight → carrier bags, cling film.</p></div>
+            <div class="card"><h3 style="font-size:1rem;">🚰 HDPE</h3><p style="font-size:0.88rem;color:var(--ink-soft);">Rigid, strong, chemical-resistant → pipes, bottles.</p></div>
+            <div class="card"><h3 style="font-size:1rem;">🪑 PP</h3><p style="font-size:0.88rem;color:var(--ink-soft);">Tough, heat-resistant → food containers, ropes.</p></div>
+            <div class="card"><h3 style="font-size:1rem;">📦 PS</h3><p style="font-size:0.88rem;color:var(--ink-soft);">Lightweight, can be foamed → packaging, insulation.</p></div>
+            <div class="card"><h3 style="font-size:1rem;">🚪 PVC</h3><p style="font-size:0.88rem;color:var(--ink-soft);">Durable, weatherproof → window frames, pipes.</p></div>
+            <div class="card"><h3 style="font-size:1rem;">🔍 Perspex</h3><p style="font-size:0.88rem;color:var(--ink-soft);">Transparent, shatter-resistant → windows, signs.</p></div>
+          </div>
+          <div class="callout callout-amber">When choosing "the best plastic" for a product, always link back to a specific property — "flexible" or "waterproof" is a much stronger answer than just "it's a good material."</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m7">
+          <div class="quiz" data-mission="7" data-explain="HDPE's rigidity, strength and resistance to chemicals make it ideal for water pipes, which need to hold shape and resist damage over years of use.">
+            <div class="quiz-q">Which plastic property makes HDPE a good choice for water pipes?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Rigidity and chemical resistance</button>
+              <button class="quiz-opt" data-correct="false">Being easily biodegradable</button>
+              <button class="quiz-opt" data-correct="false">Being transparent</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="7" data-explain="LDPE's flexibility and light weight make it ideal for bags that need to bend, stretch, and be lightweight to carry.">
+            <div class="quiz-q">Why is LDPE used for plastic carrier bags rather than HDPE?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">LDPE is flexible and lightweight</button>
+              <button class="quiz-opt" data-correct="false">LDPE is more transparent</button>
+              <button class="quiz-opt" data-correct="false">LDPE is heavier and stronger</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 8: MATERIAL CHOICES ============ -->
+      <section class="lo-block" id="m8">
+        <div class="mission-header-row">
+          <h2>🌍 Mission 8: Material Choices</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="8">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m8">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m8">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m8">
+          <p>Crude oil is a <strong>non-renewable resource</strong> — it took millions of years to form, and countries are already thinking hard about what happens when reserves run low or become harder to extract.</p>
+          <div class="callout callout-teal">This connects directly to your unit's big idea: as environmental impact becomes a bigger concern, the demand for materials is <strong>changing</strong> — pushing industries to look for alternatives to traditional plastics.</div>
+
+          <table class="data">
+            <tr><th>Concern</th><th>Why it matters</th></tr>
+            <tr><td>Resource security</td><td>Oil reserves are finite and unevenly distributed between countries</td></tr>
+            <tr><td>Plastic pollution</td><td>Most plastics don't biodegrade, building up in oceans and landfill</td></tr>
+            <tr><td>Carbon emissions</td><td>Extracting and processing crude oil releases greenhouse gases</td></tr>
+          </table>
+          <div class="callout callout-amber">Possible alternatives being explored: bioplastics (made from plant starch), recycled plastics, and biodegradable packaging — each with its own trade-offs in cost, strength, and practicality. This is exactly the kind of trade-off your Criterion D debate will explore.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m8">
+          <div class="quiz" data-mission="8" data-explain="Crude oil takes millions of years to form naturally — far slower than the rate at which humans extract and use it — which is exactly what makes a resource non-renewable.">
+            <div class="quiz-q">Why is crude oil considered a non-renewable resource?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">It forms far slower than we use it up</button>
+              <button class="quiz-opt" data-correct="false">It can be made instantly in a lab</button>
+              <button class="quiz-opt" data-correct="false">It never runs out</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="8" data-explain="Most conventional plastics don't break down naturally, so they accumulate in landfills and oceans rather than decomposing like organic waste.">
+            <div class="quiz-q">Why is plastic pollution such a persistent problem?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Most plastics don't biodegrade, so they accumulate over time</button>
+              <button class="quiz-opt" data-correct="false">Plastic dissolves harmlessly in water within days</button>
+              <button class="quiz-opt" data-correct="false">Plastic pollution is not actually increasing</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILL CHECK -->
+      <section class="lo-block" id="skills">
+        <div class="mission-header-row"><h2>🧭 Skill Check</h2></div>
+        <p style="font-size:0.94rem;color:var(--ink-soft);">Not scored — just for you. Rate how confident you feel about each skill before the final challenge.</p>
+        <div id="confidence-list">
+          <div class="confidence-row"><div>Explaining how crude oil formed</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Naming and drawing simple hydrocarbons</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Explaining fractional distillation</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Explaining cracking and why it's done</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Explaining polymerisation</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Matching plastic properties to real uses</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+        </div>
+      </section>
+
+      <!-- BOSS -->
+      <section class="lo-block" id="boss">
+        <div class="boss-banner">
+          <div class="m-icon">👑</div>
+          <h2 style="color:#fff;">Final Challenge: Materials Master</h2>
+          <p style="color:rgba(255,255,255,0.75);max-width:520px;margin:0 auto;">Mixed questions from every mission. Beat this and you've earned the Materials Master badge for Unit 4.</p>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="Crude oil forms from ancient marine organisms buried and transformed by heat and pressure over millions of years.">
+          <div class="quiz-q">Q1. Crude oil formed from the remains of...</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="true">Ancient sea organisms</button>
+            <button class="quiz-opt" data-correct="false">Ancient rocks</button>
+            <button class="quiz-opt" data-correct="false">Volcanic ash</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="Fractional distillation separates crude oil by boiling point — different chain lengths condense at different heights in the tower.">
+          <div class="quiz-q">Q2. Fractional distillation separates crude oil based on differences in...</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="true">Boiling point</button>
+            <button class="quiz-opt" data-correct="false">Colour</button>
+            <button class="quiz-opt" data-correct="false">Mass only</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="Cracking is carried out because distillation alone doesn't supply enough short-chain products like petrol to meet demand.">
+          <div class="quiz-q">Q3. Cracking is carried out mainly because...</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="true">Demand for short-chain fractions exceeds what distillation alone supplies</button>
+            <button class="quiz-opt" data-correct="false">Long chains are too dangerous to store</button>
+            <button class="quiz-opt" data-correct="false">It removes hydrogen from crude oil</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="Polymerisation joins many small monomer molecules into one long polymer chain — this is exactly how plastics are made.">
+          <div class="quiz-q">Q4. What process joins many small monomers into a long polymer chain?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">Cracking</button>
+            <button class="quiz-opt" data-correct="true">Polymerisation</button>
+            <button class="quiz-opt" data-correct="false">Distillation</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="LDPE's flexible, tangled chain structure makes it ideal for bags that need to bend and stretch.">
+          <div class="quiz-q">Q5. Which plastic is best suited for a flexible carrier bag?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="true">LDPE</button>
+            <button class="quiz-opt" data-correct="false">HDPE</button>
+            <button class="quiz-opt" data-correct="false">Perspex</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="badge-shelf">
+          <div class="badge"><div class="icon">🦖</div>Fossil Finder</div>
+          <div class="badge"><div class="icon">🏭</div>Tower Operator</div>
+          <div class="badge"><div class="icon">✂️</div>Cracking Expert</div>
+          <div class="badge"><div class="icon">🔗</div>Polymer Pro</div>
+          <div class="badge"><div class="icon">👑</div>Materials Master</div>
+        </div>
+        <p style="text-align:center;font-size:0.82rem;color:var(--ink-faint);margin-top:10px;">Badges light up once your energy meter hits 100%.</p>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Unit 4 · His Dark Materials — Energy Quest · <a href="index.html">Back to map</a></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

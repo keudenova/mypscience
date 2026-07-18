@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 5 · Energy Quest</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-dot"></span>Energy Quest</a>
+    <div class="navlinks">
+      <a href="index.html">Map</a>
+      <a href="unit5.html" class="current">Unit 5</a>
+      <span class="xp-pill"><span class="bolt">⚡</span><span id="xp-count">0</span> XP</span>
+    </div>
+  </div>
+</nav>
+
+<header class="unit-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Map</a> / Unit 5</div>
+    <h1 style="color:#fff;">Quest 5: Designer Genes</h1>
+    <p style="color:rgba(255,255,255,0.75);max-width:640px;">Every living thing carries an instruction manual written in DNA. Learn how traits pass from parent to child, how to predict the odds, and how a single cell becomes two. 8 missions + 1 final challenge.</p>
+
+    <div style="margin-top:14px;">
+      <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:var(--font-mono);margin-right:10px;">LANGUAGE</span>
+      <span class="lang-toggle">
+        <button data-lang-btn="en" class="active">English only</button>
+        <button data-lang-btn="bi">English + 中文</button>
+      </span>
+    </div>
+
+    <div class="energy-meter-wrap">
+      <div class="energy-meter-label"><span>🔋 ENERGY METER</span><span id="energy-meter-pct">0%</span></div>
+      <div class="energy-meter"><div class="energy-meter-fill" id="energy-meter-fill"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap" style="padding-top:36px;">
+  <div class="section-head">
+    <span class="kicker">Mission map</span>
+    <h2>Pick a mission — or go in order</h2>
+    <p style="font-size:0.9rem;">Start on the <strong>Learn</strong> tab if the topic is new, or jump straight to <strong>Challenge</strong> if you just want to test yourself.</p>
+  </div>
+  <div class="mission-map">
+    <a href="#m1" class="mission-card" data-mission-card="1"><span class="m-status"></span><span class="m-icon">🧬</span><span class="m-num">Mission 1</span><div class="m-title">DNA HQ</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m2" class="mission-card" data-mission-card="2"><span class="m-status"></span><span class="m-icon">🐒</span><span class="m-num">Mission 2</span><div class="m-title">Survival Squad</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m3" class="mission-card" data-mission-card="3"><span class="m-status"></span><span class="m-icon">🌱</span><span class="m-num">Mission 3</span><div class="m-title">Mendel's Garden</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m4" class="mission-card" data-mission-card="4"><span class="m-status"></span><span class="m-icon">⬜</span><span class="m-num">Mission 4</span><div class="m-title">Punnett Squares</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m5" class="mission-card" data-mission-card="5"><span class="m-status"></span><span class="m-icon">🔍</span><span class="m-num">Mission 5</span><div class="m-title">Test Cross Detective</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m6" class="mission-card" data-mission-card="6"><span class="m-status"></span><span class="m-icon">🌀</span><span class="m-num">Mission 6</span><div class="m-title">DNA Structure</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m7" class="mission-card" data-mission-card="7"><span class="m-status"></span><span class="m-icon">📋</span><span class="m-num">Mission 7</span><div class="m-title">DNA Replication</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m8" class="mission-card" data-mission-card="8"><span class="m-status"></span><span class="m-icon">🔬</span><span class="m-num">Mission 8</span><div class="m-title">Cell Division</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#boss" class="mission-card boss-card" data-mission-card="9"><span class="m-status"></span><span class="m-icon">👑</span><span class="m-num">Final Challenge</span><div class="m-title">Genetics Master</div><span class="m-stars">☆☆☆</span></a>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:20px;">
+  <div class="unit-layout">
+
+    <nav class="side-nav">
+      <a href="#m1">🧬 M1 DNA HQ</a>
+      <a href="#m2">🐒 M2 Survival Squad</a>
+      <a href="#m3">🌱 M3 Mendel's Garden</a>
+      <a href="#m4">⬜ M4 Punnett Squares</a>
+      <a href="#m5">🔍 M5 Test Cross Detective</a>
+      <a href="#m6">🌀 M6 DNA Structure</a>
+      <a href="#m7">📋 M7 DNA Replication</a>
+      <a href="#m8">🔬 M8 Cell Division</a>
+      <a href="#skills">🧭 Skill Check</a>
+      <a href="#boss">👑 Final Challenge</a>
+    </nav>
+
+    <main>
+
+      <!-- ============ MISSION 1: DNA HQ ============ -->
+      <section class="lo-block" id="m1">
+        <div class="mission-header-row">
+          <h2>🧬 Mission 1: DNA HQ <span class="zh zh-inline" style="font-size:0.55em;">脫氧核糖核酸</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="1">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m1">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m1">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m1">
+          <p>Every cell in your body (with a nucleus) carries a complete copy of your instruction manual, tightly packed inside the <strong>nucleus</strong>.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 300 160">
+              <ellipse cx="150" cy="85" rx="130" ry="65" fill="none" stroke="var(--line)" stroke-width="2"/>
+              <text x="150" y="30" text-anchor="middle" font-size="9.5" fill="var(--ink-faint)">cell</text>
+              <circle cx="150" cy="90" r="45" fill="var(--teal)" opacity="0.18" stroke="var(--teal-deep)" stroke-width="2"/>
+              <text x="150" y="65" text-anchor="middle" font-size="9.5" fill="var(--teal-deep)" font-weight="700">nucleus</text>
+              <path d="M125 100 Q140 80 150 100 T175 100" fill="none" stroke="var(--coral)" stroke-width="2.5"/>
+              <path d="M125 108 Q140 128 150 108 T175 108" fill="none" stroke="var(--amber-deep)" stroke-width="2.5"/>
+              <text x="150" y="130" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">DNA</text>
+            </svg>
+            <p class="diagram-caption">DNA lives inside the nucleus. It carries the genetic information that makes you, you.</p>
+          </div>
+
+          <div class="glossary">
+            <div class="gloss-chip"><span class="en">DNA</span><span class="zh-inline">脫氧核糖核酸</span><div class="zh">The molecule that carries genetic information.</div></div>
+            <div class="gloss-chip"><span class="en">Gene</span><span class="zh-inline">基因</span><div class="zh">A section of DNA — the basic unit of heredity.</div></div>
+            <div class="gloss-chip"><span class="en">Allele</span><span class="zh-inline">等位基因</span><div class="zh">A different version of the same gene.</div></div>
+          </div>
+
+          <div class="callout callout-teal">You have <strong>two copies</strong> of every gene — one inherited from each parent, delivered inside sex cells (gametes) that each carry half the normal number of chromosomes.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m1">
+          <div class="quiz" data-mission="1" data-explain="DNA is stored inside the nucleus of eukaryotic cells, tightly coiled to fit.">
+            <div class="quiz-q">Where is DNA found in a eukaryotic cell?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">The nucleus</button>
+              <button class="quiz-opt" data-correct="false">The cell membrane</button>
+              <button class="quiz-opt" data-correct="false">Outside the cell</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="1" data-explain="An allele is a different version of the same gene — for example, different alleles of an eye-colour gene might give blue or brown eyes.">
+            <div class="quiz-q">What is an allele?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">A different version of the same gene</button>
+              <button class="quiz-opt" data-correct="false">A whole chromosome</button>
+              <button class="quiz-opt" data-correct="false">A type of cell</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 2: SURVIVAL SQUAD ============ -->
+      <section class="lo-block" id="m2">
+        <div class="mission-header-row">
+          <h2>🐒 Mission 2: Survival Squad</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="2">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m2">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m2">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m2">
+          <p><strong>Natural selection</strong> — sometimes summed up as "survival of the fittest" — explains how species change over generations.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 360 110">
+              <g font-family="IBM Plex Mono, monospace" font-size="9.5" text-anchor="middle">
+                <rect x="10" y="35" width="100" height="34" rx="8" fill="var(--bg-dark)"/><text x="60" y="56" fill="#fff">Varied population</text>
+                <path d="M114 52 L150 52" stroke="var(--ink-faint)" stroke-width="2" marker-end="url(#g2)"/>
+                <rect x="154" y="35" width="100" height="34" rx="8" fill="var(--coral)" opacity="0.85"/><text x="204" y="56" fill="#fff">Environment "selects"</text>
+                <path d="M258 52 L294 52" stroke="var(--ink-faint)" stroke-width="2" marker-end="url(#g2)"/>
+                <rect x="298" y="35" width="55" height="34" rx="8" fill="var(--teal)"/><text x="325" y="56" fill="#0C2723">Survivors breed</text>
+              </g>
+              <defs><marker id="g2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker></defs>
+            </svg>
+            <p class="diagram-caption">Individuals with traits better suited to their environment are more likely to survive and pass those traits to offspring.</p>
+          </div>
+
+          <div class="callout callout-amber">Both <strong>genetics</strong> and <strong>environment</strong> affect survival — a useful gene only helps if the environment actually rewards that trait. This is the heart of this unit's Statement of Inquiry: identity comes from a mix of internal (genetic) and environmental factors.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m2">
+          <div class="quiz" data-mission="2" data-explain="Natural selection favours individuals whose traits happen to suit their current environment — those individuals are more likely to survive and reproduce, passing the trait on.">
+            <div class="quiz-q">What does "survival of the fittest" actually mean in natural selection?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Individuals best suited to their environment are more likely to survive and reproduce</button>
+              <button class="quiz-opt" data-correct="false">Only the physically strongest individual in a species survives</button>
+              <button class="quiz-opt" data-correct="false">All individuals have an equal chance of survival regardless of traits</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="2" data-explain="Natural selection requires variation within a population — without different traits to select between, there's nothing for the environment to act on.">
+            <div class="quiz-q">Why does natural selection need variation within a population?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Without different traits, there's nothing for the environment to select between</button>
+              <button class="quiz-opt" data-correct="false">Variation stops evolution from happening</button>
+              <button class="quiz-opt" data-correct="false">It doesn't — natural selection works the same either way</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 3: MENDEL'S GARDEN ============ -->
+      <section class="lo-block" id="m3">
+        <div class="mission-header-row">
+          <h2>🌱 Mission 3: Mendel's Garden</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="3">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m3">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m3">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m3">
+          <p>Gregor Mendel bred thousands of pea plants in the 1800s and discovered predictable patterns in how traits pass from parent to offspring — before anyone even knew what DNA was.</p>
+
+          <table class="data">
+            <tr><th>Term</th><th>Meaning</th></tr>
+            <tr><td>Genotype</td><td>The genetic makeup — the actual alleles, e.g. Bb</td></tr>
+            <tr><td>Phenotype</td><td>The physical trait you can see, e.g. brown eyes</td></tr>
+            <tr><td>Homozygous</td><td>Two identical alleles, e.g. BB or bb</td></tr>
+            <tr><td>Heterozygous</td><td>Two different alleles, e.g. Bb</td></tr>
+            <tr><td>Dominant allele</td><td>Shows up in the phenotype even with one copy (capital letter)</td></tr>
+            <tr><td>Recessive allele</td><td>Only shows up if both copies are recessive (lowercase letter)</td></tr>
+          </table>
+
+          <div class="callout callout-teal">Memory trick: <strong>dominant</strong> alleles "dominate" — they only need one copy to control the phenotype. A <strong>recessive</strong> allele has to hide behind a dominant one unless it has no competition (i.e. it's paired with another recessive).</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m3">
+          <div class="quiz" data-mission="3" data-explain="Bb has two different alleles (one dominant B, one recessive b) — this is the definition of heterozygous.">
+            <div class="quiz-q">An organism with genotype Bb is described as:</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Homozygous dominant</button>
+              <button class="quiz-opt" data-correct="true">Heterozygous</button>
+              <button class="quiz-opt" data-correct="false">Homozygous recessive</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="3" data-explain="Phenotype is the observable, physical trait — genotype is the underlying genetic combination of alleles that produces it.">
+            <div class="quiz-q">What's the difference between genotype and phenotype?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Genotype is the genetic makeup; phenotype is the visible trait</button>
+              <button class="quiz-opt" data-correct="false">They mean exactly the same thing</button>
+              <button class="quiz-opt" data-correct="false">Phenotype is inherited; genotype is not</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 4: PUNNETT SQUARES ============ -->
+      <section class="lo-block" id="m4">
+        <div class="mission-header-row">
+          <h2>⬜ Mission 4: Punnett Squares</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="4">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m4">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m4">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m4">
+          <p>A <strong>Punnett square</strong> predicts the possible genotypes (and their odds) of offspring from two parents.</p>
+
+          <div class="diagram-box" style="max-width:280px;">
+            <svg viewBox="0 0 240 220">
+              <text x="120" y="16" text-anchor="middle" font-size="11" fill="var(--ink-soft)">Parent 2: Bb</text>
+              <text x="14" y="120" text-anchor="middle" font-size="11" fill="var(--ink-soft)" transform="rotate(-90 14 120)">Parent 1: Bb</text>
+              <rect x="40" y="30" width="90" height="30" fill="var(--bg)" stroke="var(--line)"/><text x="85" y="50" text-anchor="middle" font-size="12" font-weight="700">B</text>
+              <rect x="130" y="30" width="90" height="30" fill="var(--bg)" stroke="var(--line)"/><text x="175" y="50" text-anchor="middle" font-size="12" font-weight="700">b</text>
+              <rect x="40" y="60" width="90" height="30" fill="var(--bg)" stroke="var(--line)"/>
+              <rect x="130" y="60" width="90" height="30" fill="var(--bg)" stroke="var(--line)"/>
+
+              <rect x="40" y="90" width="90" height="55" fill="var(--teal)" opacity="0.85" stroke="var(--line)"/><text x="85" y="123" text-anchor="middle" font-size="14" font-weight="700" fill="#0C2723">BB</text>
+              <rect x="130" y="90" width="90" height="55" fill="var(--amber)" opacity="0.85" stroke="var(--line)"/><text x="175" y="123" text-anchor="middle" font-size="14" font-weight="700" fill="#1B1E3D">Bb</text>
+              <rect x="40" y="145" width="90" height="55" fill="var(--amber)" opacity="0.85" stroke="var(--line)"/><text x="85" y="178" text-anchor="middle" font-size="14" font-weight="700" fill="#1B1E3D">Bb</text>
+              <rect x="130" y="145" width="90" height="55" fill="var(--coral)" opacity="0.85" stroke="var(--line)"/><text x="175" y="178" text-anchor="middle" font-size="14" font-weight="700" fill="#fff">bb</text>
+            </svg>
+            <p class="diagram-caption">Bb × Bb gives a 1 : 2 : 1 ratio — 1 BB, 2 Bb, 1 bb — so 3 in 4 offspring show the dominant trait, 1 in 4 shows the recessive.</p>
+          </div>
+
+          <div class="worked">
+            <div class="label">How to build one</div>
+            <p>
+              <em>Step 1:</em> Write one parent's alleles across the top, the other's down the side.<br>
+              <em>Step 2:</em> Fill each box with the combination of the row + column allele.<br>
+              <em>Step 3:</em> Count the genotypes to get ratios; use dominant/recessive rules to get phenotype ratios.
+            </p>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m4">
+          <div class="quiz" data-mission="4" data-explain="Bb × Bb produces genotypes BB, Bb, Bb, bb — a 1:2:1 ratio, so 1 in 4 offspring are homozygous recessive (bb).">
+            <div class="quiz-q">In a Bb × Bb cross, what fraction of offspring are expected to be homozygous recessive (bb)?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">1 in 2</button>
+              <button class="quiz-opt" data-correct="true">1 in 4</button>
+              <button class="quiz-opt" data-correct="false">3 in 4</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="4" data-explain="With B dominant, both BB and Bb show the dominant phenotype — only bb shows recessive. That's 3 out of 4 boxes showing the dominant trait.">
+            <div class="quiz-q">In the same Bb × Bb cross, what fraction show the DOMINANT phenotype?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">3 in 4</button>
+              <button class="quiz-opt" data-correct="false">1 in 4</button>
+              <button class="quiz-opt" data-correct="false">1 in 2</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 5: TEST CROSS DETECTIVE ============ -->
+      <section class="lo-block" id="m5">
+        <div class="mission-header-row">
+          <h2>🔍 Mission 5: Test Cross Detective</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="5">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m5">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m5">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m5">
+          <p>Here's a genetics mystery: an organism shows the dominant phenotype — but is its genotype BB or Bb? You can't tell just by looking. A <strong>test cross</strong> solves it.</p>
+
+          <div class="worked">
+            <div class="label">The detective method</div>
+            <p>
+              <em>Step 1:</em> Cross the mystery organism with a known homozygous recessive (bb).<br>
+              <em>Step 2:</em> Look at the offspring.<br>
+              <em>Step 3a:</em> If ALL offspring show the dominant trait → mystery parent was <strong>BB</strong>.<br>
+              <em>Step 3b:</em> If SOME offspring show the recessive trait → mystery parent was <strong>Bb</strong>.
+            </p>
+          </div>
+          <div class="callout callout-teal">Why does this work? BB × bb can only ever make Bb offspring (all dominant-looking). But Bb × bb gives a 1:1 mix of Bb and bb — so any recessive offspring at all proves the mystery parent must carry a hidden recessive allele.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m5">
+          <div class="quiz" data-mission="5" data-explain="A test cross always uses a homozygous recessive individual (bb) because it can't mask any dominant allele in the offspring — making the result unambiguous.">
+            <div class="quiz-q">In a test cross, what genotype is the "known" partner always?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Homozygous dominant (BB)</button>
+              <button class="quiz-opt" data-correct="true">Homozygous recessive (bb)</button>
+              <button class="quiz-opt" data-correct="false">Heterozygous (Bb)</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="5" data-explain="If even one offspring shows the recessive phenotype, the mystery parent must have contributed a recessive allele — meaning it was heterozygous (Bb), not BB.">
+            <div class="quiz-q">If a test cross produces some recessive-looking offspring, what does that tell you about the mystery parent?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">It must be heterozygous (Bb)</button>
+              <button class="quiz-opt" data-correct="false">It must be homozygous dominant (BB)</button>
+              <button class="quiz-opt" data-correct="false">It tells you nothing useful</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 6: DNA STRUCTURE ============ -->
+      <section class="lo-block" id="m6">
+        <div class="mission-header-row">
+          <h2>🌀 Mission 6: DNA Structure</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="6">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m6">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m6">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m6">
+          <p>DNA is shaped like a twisted ladder — a <strong>double helix</strong>. Watson and Crick are usually credited with figuring out this structure in 1953, but they relied heavily on X-ray images taken by Rosalind Franklin.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 220 160">
+              <path d="M40 10 Q80 40 40 70 Q0 100 40 130 Q80 160 40 190" fill="none" stroke="var(--teal-deep)" stroke-width="3" transform="translate(0,-15)"/>
+              <path d="M180 10 Q140 40 180 70 Q220 100 180 130 Q140 160 180 190" fill="none" stroke="var(--amber-deep)" stroke-width="3" transform="translate(0,-15)"/>
+              <line x1="52" y1="14" x2="168" y2="14" stroke="var(--coral)" stroke-width="3"/>
+              <line x1="44" y1="40" x2="176" y2="40" stroke="var(--coral)" stroke-width="3"/>
+              <line x1="38" y1="66" x2="182" y2="66" stroke="var(--coral)" stroke-width="3"/>
+              <line x1="44" y1="92" x2="176" y2="92" stroke="var(--coral)" stroke-width="3"/>
+              <line x1="52" y1="118" x2="168" y2="118" stroke="var(--coral)" stroke-width="3"/>
+              <text x="110" y="140" text-anchor="middle" font-size="9" fill="var(--ink-soft)">base pairs (rungs)</text>
+            </svg>
+            <p class="diagram-caption">Two strands twist around each other; the "rungs" connecting them are pairs of chemical bases.</p>
+          </div>
+
+          <div class="callout callout-amber">The bases always pair the same way: <strong>A with T</strong>, and <strong>C with G</strong>. This fixed pairing is what makes DNA replication and reading genetic code possible.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m6">
+          <div class="quiz" data-mission="6" data-explain="Franklin's X-ray diffraction images (particularly 'Photo 51') provided crucial evidence for the helical structure, though Watson and Crick published the model.">
+            <div class="quiz-q">Whose X-ray images provided crucial evidence for the double helix structure?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Rosalind Franklin</button>
+              <button class="quiz-opt" data-correct="false">Gregor Mendel</button>
+              <button class="quiz-opt" data-correct="false">Charles Darwin</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="6" data-explain="DNA bases always pair in a fixed way: A with T, and C with G — this is called complementary base pairing.">
+            <div class="quiz-q">In DNA, base A always pairs with which base?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">T</button>
+              <button class="quiz-opt" data-correct="false">C</button>
+              <button class="quiz-opt" data-correct="false">G</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 7: DNA REPLICATION ============ -->
+      <section class="lo-block" id="m7">
+        <div class="mission-header-row">
+          <h2>📋 Mission 7: DNA Replication</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="7">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m7">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m7">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m7">
+          <p>Before a cell divides, it must copy its DNA exactly — otherwise the new cells wouldn't have complete instructions.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 340 130">
+              <g font-family="IBM Plex Mono, monospace" font-size="9.5" text-anchor="middle">
+                <rect x="10" y="45" width="90" height="34" rx="8" fill="var(--bg-dark)"/><text x="55" y="66" fill="#fff">Original DNA</text>
+                <path d="M104 62 L140 62" stroke="var(--ink-faint)" stroke-width="2" marker-end="url(#g7)"/>
+                <text x="122" y="52" font-size="8.5" fill="var(--ink-soft)">unzips</text>
+                <rect x="144" y="20" width="90" height="30" rx="6" fill="var(--teal)"/><text x="189" y="39" fill="#0C2723">strand 1 + new copy</text>
+                <rect x="144" y="80" width="90" height="30" rx="6" fill="var(--amber)"/><text x="189" y="99" fill="#1B1E3D">strand 2 + new copy</text>
+                <path d="M238 35 L270 45" stroke="var(--ink-faint)" stroke-width="1.5" marker-end="url(#g7)"/>
+                <path d="M238 95 L270 85" stroke="var(--ink-faint)" stroke-width="1.5" marker-end="url(#g7)"/>
+                <rect x="274" y="45" width="60" height="34" rx="8" fill="var(--bg-dark)"/><text x="304" y="66" fill="#fff" font-size="8.5">2 identical DNA copies</text>
+              </g>
+              <defs><marker id="g7" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker></defs>
+            </svg>
+            <p class="diagram-caption">The double helix "unzips," and each old strand acts as a template to build a new matching strand — so each new DNA molecule has one old strand and one new one.</p>
+          </div>
+          <div class="callout callout-teal">Because base pairing is fixed (A–T, C–G), each old strand can only be copied one correct way — this is what makes replication so accurate.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m7">
+          <div class="quiz" data-mission="7" data-explain="DNA replication begins with the double helix unzipping, separating the two strands so each can be copied.">
+            <div class="quiz-q">What is the first step of DNA replication?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">The double helix unzips into two separate strands</button>
+              <button class="quiz-opt" data-correct="false">The DNA is destroyed and rebuilt from scratch</button>
+              <button class="quiz-opt" data-correct="false">A new cell forms first, then DNA appears</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="7" data-explain="Each new DNA molecule keeps one original strand and pairs it with one newly-built strand — this is why the process is called 'semi-conservative.'">
+            <div class="quiz-q">After replication, what does each new DNA molecule contain?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">One original strand and one newly made strand</button>
+              <button class="quiz-opt" data-correct="false">Two completely new strands</button>
+              <button class="quiz-opt" data-correct="false">Two original strands</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 8: CELL DIVISION ============ -->
+      <section class="lo-block" id="m8">
+        <div class="mission-header-row">
+          <h2>🔬 Mission 8: Cell Division</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="8">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m8">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m8">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m8">
+          <p>Cells aren't always dividing — most spend the majority of their time doing their normal job. When division does happen, it's one of two very different types.</p>
+
+          <div class="diagram-row" style="grid-template-columns:1fr 1fr;">
+            <div class="diagram-box" style="margin:0;">
+              <svg viewBox="0 0 180 110">
+                <circle cx="40" cy="55" r="24" fill="var(--teal)" opacity="0.85"/>
+                <path d="M74 55 L100 55" stroke="var(--ink-faint)" stroke-width="2" marker-end="url(#g8a)"/>
+                <circle cx="130" cy="35" r="18" fill="var(--teal)" opacity="0.85"/>
+                <circle cx="130" cy="75" r="18" fill="var(--teal)" opacity="0.85"/>
+                <defs><marker id="g8a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker></defs>
+              </svg>
+              <p class="diagram-caption"><strong>Mitosis</strong> — 1 cell → 2 identical cells. Happens in all body cells, for growth and repair.</p>
+            </div>
+            <div class="diagram-box" style="margin:0;">
+              <svg viewBox="0 0 180 110">
+                <circle cx="30" cy="55" r="22" fill="var(--amber)" opacity="0.85"/>
+                <path d="M56 55 L80 55" stroke="var(--ink-faint)" stroke-width="2" marker-end="url(#g8b)"/>
+                <circle cx="105" cy="25" r="13" fill="var(--amber)" opacity="0.85"/>
+                <circle cx="105" cy="53" r="13" fill="var(--amber)" opacity="0.85"/>
+                <circle cx="105" cy="81" r="13" fill="var(--amber)" opacity="0.85"/>
+                <circle cx="150" cy="25" r="13" fill="var(--amber)" opacity="0.85"/>
+                <defs><marker id="g8b" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker></defs>
+              </svg>
+              <p class="diagram-caption"><strong>Meiosis</strong> — 1 cell → 4 different cells with half the chromosomes. Only in gamete-producing cells.</p>
+            </div>
+          </div>
+
+          <table class="data">
+            <tr><th></th><th>Mitosis</th><th>Meiosis</th></tr>
+            <tr><td>Number of divisions</td><td>1</td><td>2</td></tr>
+            <tr><td>Daughter cells</td><td>2, identical</td><td>4, genetically different</td></tr>
+            <tr><td>Chromosome number</td><td>Same as parent cell</td><td>Half the parent cell</td></tr>
+            <tr><td>Where it happens</td><td>All body cells</td><td>Only in gamete-producing cells</td></tr>
+            <tr><td>Purpose</td><td>Growth &amp; repair</td><td>Making sex cells (sperm/egg)</td></tr>
+          </table>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m8">
+          <div class="quiz" data-mission="8" data-explain="Meiosis halves the chromosome number so that when two gametes (each with half the normal number) combine at fertilisation, the offspring ends up with the correct full number.">
+            <div class="quiz-q">Why must meiosis produce cells with HALF the normal chromosome number?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">So that fertilisation restores the full chromosome number</button>
+              <button class="quiz-opt" data-correct="false">To make the cells smaller for no particular reason</button>
+              <button class="quiz-opt" data-correct="false">Chromosome number doesn't matter</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="8" data-explain="Mitosis is the division type used for everyday growth and repair — producing two genetically identical cells with the full chromosome number.">
+            <div class="quiz-q">Which type of division is responsible for healing a cut on your skin?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Mitosis</button>
+              <button class="quiz-opt" data-correct="false">Meiosis</button>
+              <button class="quiz-opt" data-correct="false">Neither — skin cells don't divide</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILL CHECK -->
+      <section class="lo-block" id="skills">
+        <div class="mission-header-row"><h2>🧭 Skill Check</h2></div>
+        <p style="font-size:0.94rem;color:var(--ink-soft);">Not scored — just for you. Rate how confident you feel about each skill before the final challenge.</p>
+        <div id="confidence-list">
+          <div class="confidence-row"><div>Explaining what DNA, genes and alleles are</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Explaining natural selection</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Using genetics vocabulary (genotype, phenotype, etc.)</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Completing a Punnett square</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Explaining a test cross</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Describing DNA structure and replication</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Comparing mitosis and meiosis</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+        </div>
+      </section>
+
+      <!-- BOSS -->
+      <section class="lo-block" id="boss">
+        <div class="boss-banner">
+          <div class="m-icon">👑</div>
+          <h2 style="color:#fff;">Final Challenge: Genetics Master</h2>
+          <p style="color:rgba(255,255,255,0.75);max-width:520px;margin:0 auto;">Mixed questions from every mission. Beat this and you've earned the Genetics Master badge for Unit 5.</p>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="A gene is a section of DNA and is considered the basic unit of heredity — the smallest functional unit passed from parent to offspring.">
+          <div class="quiz-q">Q1. What is the basic unit of heredity?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="true">A gene</button>
+            <button class="quiz-opt" data-correct="false">A cell</button>
+            <button class="quiz-opt" data-correct="false">A nucleus</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="Aa × aa (a test cross with a heterozygous individual) gives a 1:1 ratio of Aa : aa offspring.">
+          <div class="quiz-q">Q2. A test cross of Aa × aa produces offspring in what ratio?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="true">1 Aa : 1 aa</button>
+            <button class="quiz-opt" data-correct="false">All Aa</button>
+            <button class="quiz-opt" data-correct="false">3 Aa : 1 aa</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="DNA bases pair in a fixed way: C always pairs with G.">
+          <div class="quiz-q">Q3. Base C in DNA always pairs with which base?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">A</button>
+            <button class="quiz-opt" data-correct="false">T</button>
+            <button class="quiz-opt" data-correct="true">G</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="Meiosis produces 4 genetically different daughter cells, each with half the chromosome number — used to make gametes.">
+          <div class="quiz-q">Q4. Which type of cell division produces 4 genetically different cells?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">Mitosis</button>
+            <button class="quiz-opt" data-correct="true">Meiosis</button>
+            <button class="quiz-opt" data-correct="false">Neither</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="Natural selection depends on both genetic variation and how well those genetic traits suit the current environment — identity really is a mix of both.">
+          <div class="quiz-q">Q5. According to this unit's big idea, identity results from a mix of...</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="true">Internal (genetic) and environmental factors</button>
+            <button class="quiz-opt" data-correct="false">Only genetic factors</button>
+            <button class="quiz-opt" data-correct="false">Only environmental factors</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="badge-shelf">
+          <div class="badge"><div class="icon">🧬</div>DNA Ace</div>
+          <div class="badge"><div class="icon">🌱</div>Mendel's Student</div>
+          <div class="badge"><div class="icon">⬜</div>Square Solver</div>
+          <div class="badge"><div class="icon">🔬</div>Division Pro</div>
+          <div class="badge"><div class="icon">👑</div>Genetics Master</div>
+        </div>
+        <p style="text-align:center;font-size:0.82rem;color:var(--ink-faint);margin-top:10px;">Badges light up once your energy meter hits 100%.</p>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Unit 5 · Designer Genes — Energy Quest · <a href="index.html">Back to map</a></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit 2 · Energy Quest</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="wrap">
+    <a href="index.html" class="brand"><span class="brand-dot"></span>Energy Quest</a>
+    <div class="navlinks">
+      <a href="index.html">Map</a>
+      <a href="unit2.html" class="current">Unit 2</a>
+      <span class="xp-pill"><span class="bolt">⚡</span><span id="xp-count">0</span> XP</span>
+    </div>
+  </div>
+</nav>
+
+<header class="unit-hero">
+  <div class="wrap">
+    <div class="breadcrumb"><a href="index.html">Map</a> / Unit 2</div>
+    <h1 style="color:#fff;">Quest 2: Greedy Guts</h1>
+    <p style="color:rgba(255,255,255,0.75);max-width:640px;">Follow a sandwich on its journey from your mouth to... the other end. Meet the nutrients, the enzymes that dismantle them, and the organs that do all the work. 8 missions + 1 final challenge.</p>
+
+    <div style="margin-top:14px;">
+      <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);font-family:var(--font-mono);margin-right:10px;">LANGUAGE</span>
+      <span class="lang-toggle">
+        <button data-lang-btn="en" class="active">English only</button>
+        <button data-lang-btn="bi">English + 中文</button>
+      </span>
+    </div>
+
+    <div class="energy-meter-wrap">
+      <div class="energy-meter-label"><span>🔋 ENERGY METER</span><span id="energy-meter-pct">0%</span></div>
+      <div class="energy-meter"><div class="energy-meter-fill" id="energy-meter-fill"></div></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap" style="padding-top:36px;">
+  <div class="section-head">
+    <span class="kicker">Mission map</span>
+    <h2>Pick a mission — or go in order</h2>
+    <p style="font-size:0.9rem;">Start on the <strong>Learn</strong> tab if the topic is new, or jump straight to <strong>Challenge</strong> if you just want to test yourself.</p>
+  </div>
+  <div class="mission-map">
+    <a href="#m1" class="mission-card" data-mission-card="1"><span class="m-status"></span><span class="m-icon">🍽️</span><span class="m-num">Mission 1</span><div class="m-title">Nutrient Squad</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m2" class="mission-card" data-mission-card="2"><span class="m-status"></span><span class="m-icon">🔑</span><span class="m-num">Mission 2</span><div class="m-title">Enzyme Factory</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m3" class="mission-card" data-mission-card="3"><span class="m-status"></span><span class="m-icon">🌡️</span><span class="m-num">Mission 3</span><div class="m-title">Conditions Lab</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m4" class="mission-card" data-mission-card="4"><span class="m-status"></span><span class="m-icon">🚇</span><span class="m-num">Mission 4</span><div class="m-title">The Digestive Tunnel</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m5" class="mission-card" data-mission-card="5"><span class="m-status"></span><span class="m-icon">🧪</span><span class="m-num">Mission 5</span><div class="m-title">Enzyme Squad</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m6" class="mission-card" data-mission-card="6"><span class="m-status"></span><span class="m-icon">🥗</span><span class="m-num">Mission 6</span><div class="m-title">Balanced Diet</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m7" class="mission-card" data-mission-card="7"><span class="m-status"></span><span class="m-icon">🏷️</span><span class="m-num">Mission 7</span><div class="m-title">Label Detective</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#m8" class="mission-card" data-mission-card="8"><span class="m-status"></span><span class="m-icon">🧬</span><span class="m-num">Mission 8</span><div class="m-title">Absorption Zone</div><span class="m-stars">☆☆☆</span></a>
+    <a href="#boss" class="mission-card boss-card" data-mission-card="9"><span class="m-status"></span><span class="m-icon">👑</span><span class="m-num">Final Challenge</span><div class="m-title">Guts Master</div><span class="m-stars">☆☆☆</span></a>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:20px;">
+  <div class="unit-layout">
+
+    <nav class="side-nav">
+      <a href="#m1">🍽️ M1 Nutrient Squad</a>
+      <a href="#m2">🔑 M2 Enzyme Factory</a>
+      <a href="#m3">🌡️ M3 Conditions Lab</a>
+      <a href="#m4">🚇 M4 Digestive Tunnel</a>
+      <a href="#m5">🧪 M5 Enzyme Squad</a>
+      <a href="#m6">🥗 M6 Balanced Diet</a>
+      <a href="#m7">🏷️ M7 Label Detective</a>
+      <a href="#m8">🧬 M8 Absorption Zone</a>
+      <a href="#skills">🧭 Skill Check</a>
+      <a href="#boss">👑 Final Challenge</a>
+    </nav>
+
+    <main>
+
+      <!-- ============ MISSION 1: NUTRIENT SQUAD ============ -->
+      <section class="lo-block" id="m1">
+        <div class="mission-header-row">
+          <h2>🍽️ Mission 1: Nutrient Squad</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="1">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m1">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m1">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m1">
+          <p>Every meal is really a delivery truck for seven different nutrient types. Each one has a different job — miss too much of one, and your body can't do that job properly.</p>
+
+          <div class="glossary">
+            <div class="gloss-chip"><span class="en">🍞 Carbohydrates</span><span class="zh-inline">碳水化合物</span><div class="zh">Main energy source. Found in bread, rice, pasta, potatoes.</div></div>
+            <div class="gloss-chip"><span class="en">🥩 Proteins</span><span class="zh-inline">蛋白質</span><div class="zh">Growth and repair of cells. Found in meat, fish, beans, eggs.</div></div>
+            <div class="gloss-chip"><span class="en">🧈 Fats</span><span class="zh-inline">脂肪</span><div class="zh">Concentrated energy store, insulation. Found in oil, butter, nuts.</div></div>
+            <div class="gloss-chip"><span class="en">🍊 Vitamins</span><span class="zh-inline">維生素</span><div class="zh">Needed in tiny amounts for specific jobs — e.g. Vitamin C for healthy skin.</div></div>
+            <div class="gloss-chip"><span class="en">🧂 Minerals</span><span class="zh-inline">礦物質</span><div class="zh">e.g. calcium for bones, iron for blood.</div></div>
+            <div class="gloss-chip"><span class="en">🌾 Fibre</span><span class="zh-inline">纖維</span><div class="zh">Not digested — keeps food moving through the gut.</div></div>
+            <div class="gloss-chip"><span class="en">💧 Water</span><span class="zh-inline">水</span><div class="zh">No energy, but essential for every reaction in the body.</div></div>
+          </div>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 380 150">
+              <rect x="150" y="10" width="80" height="34" rx="8" fill="var(--bg-dark)"/>
+              <text x="190" y="32" text-anchor="middle" fill="#fff" font-size="12" font-family="IBM Plex Mono, monospace">🍔 Food</text>
+              <path d="M170 44 L70 80" stroke="var(--line)" stroke-width="2" marker-end="url(#n1)"/>
+              <path d="M190 44 L190 80" stroke="var(--line)" stroke-width="2" marker-end="url(#n1)"/>
+              <path d="M210 44 L310 80" stroke="var(--line)" stroke-width="2" marker-end="url(#n1)"/>
+
+              <rect x="20" y="84" width="100" height="40" rx="8" fill="var(--amber)"/>
+              <text x="70" y="108" text-anchor="middle" font-size="11" font-weight="700" fill="#1B1E3D">Carbohydrates</text>
+
+              <rect x="140" y="84" width="100" height="40" rx="8" fill="var(--teal)"/>
+              <text x="190" y="108" text-anchor="middle" font-size="11" font-weight="700" fill="#0C2723">Proteins</text>
+
+              <rect x="260" y="84" width="100" height="40" rx="8" fill="var(--coral)"/>
+              <text x="310" y="108" text-anchor="middle" font-size="11" font-weight="700" fill="#fff">Fats</text>
+
+              <text x="190" y="142" text-anchor="middle" font-size="10" fill="var(--ink-faint)">+ small amounts of vitamins, minerals, fibre &amp; water</text>
+              <defs><marker id="n1" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker></defs>
+            </svg>
+            <p class="diagram-caption">Every food is a mixture of nutrients — the three big "macronutrients" provide energy, the rest are needed in smaller amounts.</p>
+          </div>
+
+          <div class="callout callout-amber">A missing nutrient causes a <strong>deficiency</strong>. Not enough Vitamin C → scurvy (bleeding gums). Not enough iron → anaemia (tiredness, weakness).</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m1">
+          <div class="quiz" data-mission="1" data-explain="Proteins are the body's builders — used for growing new cells and repairing damaged ones, like muscle after exercise.">
+            <div class="quiz-q">Which nutrient is mainly used for growth and repair of cells?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Carbohydrates</button>
+              <button class="quiz-opt" data-correct="true">Proteins</button>
+              <button class="quiz-opt" data-correct="false">Fibre</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="1" data-explain="Fibre isn't broken down or absorbed — it adds bulk that keeps food moving smoothly through the intestines, preventing constipation.">
+            <div class="quiz-q">Why is fibre important, even though the body doesn't digest it?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">It keeps food moving through the digestive system</button>
+              <button class="quiz-opt" data-correct="false">It provides most of our daily energy</button>
+              <button class="quiz-opt" data-correct="false">It builds new muscle cells</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 2: ENZYME FACTORY ============ -->
+      <section class="lo-block" id="m2">
+        <div class="mission-header-row">
+          <h2>🔑 Mission 2: Enzyme Factory <span class="zh zh-inline" style="font-size:0.55em;">酵素</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="2">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m2">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m2">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m2">
+          <p>Large food molecules are too big to pass into your blood. <strong>Enzymes</strong> are biological catalysts — they speed up the breakdown of these molecules without being used up themselves.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 380 150">
+              <path d="M30 40 Q30 20 55 20 L95 20 Q120 20 120 45 L120 70 Q120 90 95 90 L75 90 L70 105 L60 90 L55 90 Q30 90 30 65 Z" fill="var(--teal)" opacity="0.85"/>
+              <text x="75" y="58" text-anchor="middle" font-size="10" font-weight="700" fill="#0C2723">enzyme</text>
+              <text x="75" y="72" text-anchor="middle" font-size="8.5" fill="#0C2723">(active site notch ↓)</text>
+
+              <rect x="150" y="52" width="34" height="20" rx="4" fill="var(--amber)" transform="rotate(-8 167 62)"/>
+              <text x="167" y="66" text-anchor="middle" font-size="8.5" font-weight="700" fill="#1B1E3D">substrate</text>
+
+              <path d="M188 60 L235 60" stroke="var(--ink-faint)" stroke-width="2" marker-end="url(#n2)"/>
+
+              <path d="M245 40 Q245 20 270 20 L310 20 Q335 20 335 45 L335 55 L318 62 L335 68 L335 65 Q335 90 310 90 L270 90 Q245 90 245 65 Z" fill="var(--teal)" opacity="0.85"/>
+              <rect x="303" y="52" width="24" height="16" rx="3" fill="var(--amber)"/>
+              <text x="290" y="105" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">substrate fits the active site</text>
+
+              <path d="M245 118 L295 118" stroke="var(--ink-faint)" stroke-width="2" marker-end="url(#n2)"/>
+              <rect x="300" y="108" width="18" height="14" rx="3" fill="var(--coral)"/>
+              <rect x="322" y="108" width="18" height="14" rx="3" fill="var(--coral)"/>
+              <text x="320" y="140" text-anchor="middle" font-size="8.5" fill="var(--ink-soft)">products released, enzyme unchanged</text>
+
+              <defs><marker id="n2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker></defs>
+            </svg>
+            <p class="diagram-caption">The <strong>lock-and-key model</strong>: an enzyme's active site is a specific shape that only fits one matching substrate — like a key fitting one lock.</p>
+          </div>
+
+          <div class="callout callout-teal">Because the active site shape only matches one substrate, each enzyme is <strong>specific</strong> — amylase can't digest protein, and protease can't digest starch.</div>
+
+          <div class="worked">
+            <div class="label">Key vocabulary</div>
+            <p><b>Substrate</b> — the molecule the enzyme acts on.<br>
+            <b>Active site</b> — the pocket on the enzyme where the substrate fits.<br>
+            <b>Enzyme-substrate complex</b> — the temporary joined structure formed during the reaction.<br>
+            <b>Products</b> — the smaller molecules formed after the substrate is broken down.</p>
+          </div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m2">
+          <div class="quiz" data-mission="2" data-explain="An enzyme's active site has a specific shape that only one substrate shape can fit — this is why enzymes are described as specific.">
+            <div class="quiz-q">Why can't amylase break down proteins?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Amylase is too small</button>
+              <button class="quiz-opt" data-correct="true">Its active site shape doesn't match the protein's shape</button>
+              <button class="quiz-opt" data-correct="false">Proteins don't need to be digested</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="2" data-explain="Enzymes are catalysts — they speed up reactions but come out of the reaction chemically unchanged, ready to work again on another substrate molecule.">
+            <div class="quiz-q">What happens to an enzyme after it breaks down a substrate?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">It is used up and destroyed</button>
+              <button class="quiz-opt" data-correct="true">It's unchanged and can be reused</button>
+              <button class="quiz-opt" data-correct="false">It becomes part of the product</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 3: CONDITIONS LAB ============ -->
+      <section class="lo-block" id="m3">
+        <div class="mission-header-row">
+          <h2>🌡️ Mission 3: Conditions Lab</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="3">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m3">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m3">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m3">
+          <p>Enzymes don't work equally well everywhere. Two conditions matter most: <strong>temperature</strong> and <strong>pH</strong>.</p>
+
+          <div class="diagram-row">
+            <div class="diagram-box" style="margin:0;">
+              <svg viewBox="0 0 220 150">
+                <line x1="25" y1="120" x2="200" y2="120" stroke="var(--line)" stroke-width="2"/>
+                <line x1="25" y1="120" x2="25" y2="15" stroke="var(--line)" stroke-width="2"/>
+                <text x="112" y="140" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">Temperature →</text>
+                <text x="14" y="70" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" transform="rotate(-90 14 70)">Rate →</text>
+                <path d="M25 115 Q70 50 110 30 Q120 25 130 55 Q145 100 190 115" fill="none" stroke="var(--teal)" stroke-width="3"/>
+                <circle cx="110" cy="30" r="4" fill="var(--amber)"/>
+                <text x="110" y="20" text-anchor="middle" font-size="8.5" fill="var(--amber-deep)" font-weight="700">optimum (~37°C)</text>
+                <text x="165" y="105" text-anchor="middle" font-size="8" fill="var(--coral)">denatured</text>
+              </svg>
+              <p class="diagram-caption">Rate rises with temperature, peaks at the <strong>optimum</strong>, then crashes as the enzyme <strong>denatures</strong> (its shape is destroyed).</p>
+            </div>
+            <div class="diagram-box" style="margin:0;">
+              <svg viewBox="0 0 220 150">
+                <line x1="25" y1="120" x2="200" y2="120" stroke="var(--line)" stroke-width="2"/>
+                <line x1="25" y1="120" x2="25" y2="15" stroke="var(--line)" stroke-width="2"/>
+                <text x="112" y="140" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)">pH →</text>
+                <text x="14" y="70" text-anchor="middle" font-size="9.5" fill="var(--ink-soft)" transform="rotate(-90 14 70)">Rate →</text>
+                <path d="M25 115 Q65 100 100 30 Q135 100 190 115" fill="none" stroke="var(--teal)" stroke-width="3"/>
+                <circle cx="100" cy="30" r="4" fill="var(--amber)"/>
+                <text x="100" y="20" text-anchor="middle" font-size="8.5" fill="var(--amber-deep)" font-weight="700">optimum pH</text>
+              </svg>
+              <p class="diagram-caption">Each enzyme has its own optimum pH — pepsin (stomach) works best around pH 2; amylase (mouth) prefers neutral pH 7.</p>
+            </div>
+          </div>
+
+          <div class="worked">
+            <div class="label">Why denaturing happens</div>
+            <p>Heat or extreme pH breaks the bonds holding the enzyme's 3D shape together. The active site changes shape, the substrate no longer fits, and the enzyme stops working — <strong>permanently</strong>. This is different from just "slowing down"; a denatured enzyme won't recover even if conditions go back to normal.</p>
+          </div>
+
+          <div class="callout callout-amber">Substrate concentration matters too: more substrate = faster rate, but only up to the point where every active site is already occupied ("saturated") — after that, adding more substrate makes no difference.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m3">
+          <div class="quiz" data-mission="3" data-explain="Beyond the optimum temperature, heat breaks the bonds holding the enzyme's shape together — this is denaturation, and it's permanent.">
+            <div class="quiz-q">Why does enzyme activity crash at very high temperatures?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">The substrate evaporates</button>
+              <button class="quiz-opt" data-correct="true">The enzyme denatures and its active site changes shape</button>
+              <button class="quiz-opt" data-correct="false">The enzyme freezes in place</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="3" data-explain="Pepsin works in the acidic stomach, so its optimum pH is low (around pH 2) — very different from most other enzymes.">
+            <div class="quiz-q">Pepsin works in the stomach. What would you expect its optimum pH to be?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Very acidic (around pH 2)</button>
+              <button class="quiz-opt" data-correct="false">Neutral (around pH 7)</button>
+              <button class="quiz-opt" data-correct="false">Very alkaline (around pH 12)</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 4: THE DIGESTIVE TUNNEL ============ -->
+      <section class="lo-block" id="m4">
+        <div class="mission-header-row">
+          <h2>🚇 Mission 4: The Digestive Tunnel <span class="zh zh-inline" style="font-size:0.55em;">消化系統</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="4">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m4">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m4">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m4">
+          <p>Food travels through one long tunnel from mouth to exit, picking up help from three "accessory organs" along the way.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 340 420">
+              <g font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">
+                <rect x="30" y="10" width="140" height="34" rx="8" fill="var(--bg-dark)"/><text x="100" y="32" fill="#fff">👄 Mouth</text>
+                <path d="M100 44 L100 66" stroke="var(--line)" stroke-width="2" marker-end="url(#n4)"/>
+
+                <rect x="30" y="68" width="140" height="34" rx="8" fill="var(--bg-dark)"/><text x="100" y="90" fill="#fff">Oesophagus</text>
+                <path d="M100 102 L100 124" stroke="var(--line)" stroke-width="2" marker-end="url(#n4)"/>
+
+                <rect x="30" y="126" width="140" height="34" rx="8" fill="var(--bg-dark)"/><text x="100" y="148" fill="#fff">🫃 Stomach</text>
+                <path d="M100 160 L100 182" stroke="var(--line)" stroke-width="2" marker-end="url(#n4)"/>
+
+                <rect x="30" y="184" width="140" height="34" rx="8" fill="var(--teal-deep)"/><text x="100" y="206" fill="#fff">Small intestine</text>
+                <path d="M100 218 L100 240" stroke="var(--line)" stroke-width="2" marker-end="url(#n4)"/>
+
+                <rect x="30" y="242" width="140" height="34" rx="8" fill="var(--bg-dark)"/><text x="100" y="264" fill="#fff">Large intestine</text>
+                <path d="M100 276 L100 298" stroke="var(--line)" stroke-width="2" marker-end="url(#n4)"/>
+
+                <rect x="30" y="300" width="140" height="34" rx="8" fill="var(--bg-dark)"/><text x="100" y="322" fill="#fff">Rectum &amp; anus</text>
+
+                <!-- accessory organs -->
+                <path d="M172 143 L215 143" stroke="var(--amber)" stroke-width="2" marker-end="url(#n4a)"/>
+                <rect x="218" y="126" width="100" height="34" rx="8" fill="var(--amber)"/><text x="268" y="148" fill="#1B1E3D">🫀 Liver</text>
+
+                <path d="M172 201 L215 172" stroke="var(--amber)" stroke-width="2" marker-end="url(#n4a)"/>
+                <rect x="218" y="155" width="100" height="34" rx="8" fill="var(--amber)" opacity="0.85"/><text x="268" y="177" fill="#1B1E3D">Gallbladder</text>
+
+                <path d="M172 210 L215 230" stroke="var(--amber)" stroke-width="2" marker-end="url(#n4a)"/>
+                <rect x="218" y="213" width="100" height="34" rx="8" fill="var(--amber)" opacity="0.7"/><text x="268" y="235" fill="#1B1E3D">Pancreas</text>
+              </g>
+              <defs>
+                <marker id="n4" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker>
+                <marker id="n4a" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--amber-deep)"/></marker>
+              </defs>
+            </svg>
+            <p class="diagram-caption">Food flows straight down the main tunnel (dark boxes). The liver, gallbladder and pancreas (gold boxes) don't touch the food directly — they inject bile and enzymes into the small intestine.</p>
+          </div>
+
+          <table class="data">
+            <tr><th>Organ</th><th>What it does</th></tr>
+            <tr><td>Mouth</td><td>Chews food (mechanical digestion); saliva contains amylase to start starch digestion</td></tr>
+            <tr><td>Oesophagus</td><td>Muscular tube — squeezes food to the stomach by peristalsis (wave-like muscle contractions)</td></tr>
+            <tr><td>Stomach</td><td>Churns food; produces acid (kills bacteria, activates pepsin) and pepsin (digests protein)</td></tr>
+            <tr><td>Liver</td><td>Produces bile (emulsifies fat — not an enzyme)</td></tr>
+            <tr><td>Gallbladder</td><td>Stores bile and releases it into the small intestine</td></tr>
+            <tr><td>Pancreas</td><td>Produces amylase, protease and lipase, released into the small intestine</td></tr>
+            <tr><td>Small intestine</td><td>Main site of digestion and absorption of nutrients into the blood</td></tr>
+            <tr><td>Large intestine</td><td>Absorbs water from remaining waste</td></tr>
+            <tr><td>Rectum &amp; anus</td><td>Stores and expels faeces</td></tr>
+          </table>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m4">
+          <div class="quiz" data-mission="4" data-explain="Peristalsis is the wave-like muscle contraction that pushes food along the oesophagus and through the rest of the gut.">
+            <div class="quiz-q">What is the wave-like muscle movement that pushes food through the oesophagus called?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Digestion</button>
+              <button class="quiz-opt" data-correct="true">Peristalsis</button>
+              <button class="quiz-opt" data-correct="false">Absorption</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="4" data-explain="The liver makes bile, but bile isn't an enzyme — it physically breaks fat into smaller droplets (emulsification), which lipase can then act on more easily.">
+            <div class="quiz-q">What does the liver produce to help digest fat?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Lipase, an enzyme</button>
+              <button class="quiz-opt" data-correct="true">Bile, which is NOT an enzyme</button>
+              <button class="quiz-opt" data-correct="false">Hydrochloric acid</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 5: ENZYME SQUAD ============ -->
+      <section class="lo-block" id="m5">
+        <div class="mission-header-row">
+          <h2>🧪 Mission 5: Enzyme Squad</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="5">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m5">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m5">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m5">
+          <p>Three enzyme squads handle the three macronutrients. Each one breaks a big molecule into small, absorbable pieces.</p>
+
+          <table class="data">
+            <tr><th>Enzyme</th><th>Made by</th><th>Breaks down</th><th>Into</th></tr>
+            <tr><td>Amylase <span class="zh zh-inline" style="font-size:0.85em;">澱粉酶</span></td><td>Salivary glands, pancreas</td><td>Starch</td><td>Sugars (maltose/glucose)</td></tr>
+            <tr><td>Protease <span class="zh zh-inline" style="font-size:0.85em;">蛋白酶</span></td><td>Stomach (pepsin), pancreas</td><td>Protein</td><td>Amino acids</td></tr>
+            <tr><td>Lipase <span class="zh zh-inline" style="font-size:0.85em;">脂肪酶</span></td><td>Pancreas</td><td>Fats</td><td>Fatty acids + glycerol</td></tr>
+          </table>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 360 100">
+              <g font-family="IBM Plex Mono, monospace" font-size="10.5" text-anchor="middle">
+                <rect x="10" y="30" width="90" height="36" rx="8" fill="var(--amber)"/><text x="55" y="52" fill="#1B1E3D">Starch</text>
+                <path d="M104 48 L146 48" stroke="var(--ink-faint)" stroke-width="2" marker-end="url(#n5)"/>
+                <text x="125" y="38" fill="var(--teal-deep)" font-size="9">amylase</text>
+
+                <rect x="150" y="30" width="90" height="36" rx="8" fill="var(--teal)"/><text x="195" y="52" fill="#0C2723">Sugars</text>
+
+                <rect x="270" y="5" width="70" height="26" rx="6" fill="var(--bg-dark)" opacity="0.9"/><text x="305" y="22" fill="#fff" font-size="9">Protein → Amino acids</text>
+                <rect x="270" y="35" width="70" height="26" rx="6" fill="var(--bg-dark)" opacity="0.9"/><text x="305" y="52" fill="#fff" font-size="9">Fat → Fatty acids</text>
+                <rect x="270" y="65" width="70" height="26" rx="6" fill="var(--bg-dark)" opacity="0.9"/><text x="305" y="82" fill="#fff" font-size="8.5">+ glycerol</text>
+              </g>
+              <defs><marker id="n5" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-faint)"/></marker></defs>
+            </svg>
+            <p class="diagram-caption">Same pattern every time: big molecule + matching enzyme → small, absorbable pieces.</p>
+          </div>
+
+          <div class="callout callout-teal">Memory trick: <strong>A</strong>mylase → <strong>s</strong>tarch (both start with a vowel-ish sound), <strong>P</strong>rotease → <strong>p</strong>rotein, <strong>L</strong>ipase → <strong>l</strong>ipid (fat). The enzyme name usually matches its substrate.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m5">
+          <div class="quiz" data-mission="5" data-explain="Lipase breaks fats down into fatty acids and glycerol, small enough to be absorbed by the small intestine.">
+            <div class="quiz-q">Lipase breaks fats down into which two products?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Amino acids and sugar</button>
+              <button class="quiz-opt" data-correct="true">Fatty acids and glycerol</button>
+              <button class="quiz-opt" data-correct="false">Starch and maltose</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="5" data-explain="Pepsin is a protease found in the stomach — it's a specific type of protein-digesting enzyme active in acidic conditions.">
+            <div class="quiz-q">Pepsin, found in the stomach, is an example of which enzyme type?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Amylase</button>
+              <button class="quiz-opt" data-correct="true">Protease</button>
+              <button class="quiz-opt" data-correct="false">Lipase</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 6: BALANCED DIET ============ -->
+      <section class="lo-block" id="m6">
+        <div class="mission-header-row">
+          <h2>🥗 Mission 6: Balanced Diet <span class="zh zh-inline" style="font-size:0.55em;">均衡飲食</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="6">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m6">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m6">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m6">
+          <p>A <strong>balanced diet</strong> means eating the right nutrients, in the right proportions, for your age, activity level and health. Too much or too little of any nutrient group causes problems.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 240 240">
+              <circle cx="120" cy="120" r="95" fill="none" stroke="var(--line)" stroke-width="30"/>
+              <circle cx="120" cy="120" r="95" fill="none" stroke="var(--teal)" stroke-width="30" stroke-dasharray="179 418" stroke-dashoffset="0" transform="rotate(-90 120 120)"/>
+              <circle cx="120" cy="120" r="95" fill="none" stroke="var(--amber)" stroke-width="30" stroke-dasharray="179 418" stroke-dashoffset="-179" transform="rotate(-90 120 120)"/>
+              <circle cx="120" cy="120" r="95" fill="none" stroke="var(--coral)" stroke-width="30" stroke-dasharray="60 418" stroke-dashoffset="-358" transform="rotate(-90 120 120)"/>
+              <circle cx="120" cy="120" r="95" fill="none" stroke="var(--ink-soft)" stroke-width="30" stroke-dasharray="60 418" stroke-dashoffset="-418" transform="rotate(-90 120 120)"/>
+              <text x="120" y="116" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="700">Your</text>
+              <text x="120" y="130" text-anchor="middle" font-size="11" fill="var(--ink)" font-weight="700">plate</text>
+            </svg>
+            <p class="diagram-caption">Roughly: <span style="color:var(--teal-deep);font-weight:700;">●</span> fruit &amp; veg, <span style="color:var(--amber-deep);font-weight:700;">●</span> starchy carbs, <span style="color:var(--coral);font-weight:700;">●</span> protein, <span style="color:var(--ink-soft);font-weight:700;">●</span> dairy + a small amount of fats/sugars — proportions, not exact grams.</p>
+          </div>
+
+          <table class="data">
+            <tr><th>Too little...</th><th>Can cause</th></tr>
+            <tr><td>Protein</td><td>Poor growth, muscle wasting</td></tr>
+            <tr><td>Vitamin C</td><td>Scurvy (bleeding gums)</td></tr>
+            <tr><td>Iron</td><td>Anaemia (tiredness)</td></tr>
+            <tr><td>Calcium</td><td>Weak bones</td></tr>
+          </table>
+          <div class="callout callout-amber">Too much energy intake (more Calories than you use) is stored as fat — leading to obesity over time. Balance isn't just about variety, it's about <em>amount</em> too.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m6">
+          <div class="quiz" data-mission="6" data-explain="Scurvy — bleeding gums and slow wound healing — is caused by a lack of vitamin C, historically a problem for sailors without fresh fruit.">
+            <div class="quiz-q">A diet lacking vitamin C can lead to which condition?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Scurvy</button>
+              <button class="quiz-opt" data-correct="false">Anaemia</button>
+              <button class="quiz-opt" data-correct="false">Obesity</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="6" data-explain="Extra energy that isn't used by the body gets stored as fat — consistently eating more Calories than you burn leads to weight gain over time.">
+            <div class="quiz-q">What typically happens if you consistently eat more energy (Calories) than your body uses?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">The excess is simply passed out as waste</button>
+              <button class="quiz-opt" data-correct="true">The excess is stored as fat</button>
+              <button class="quiz-opt" data-correct="false">The body stops absorbing any more nutrients</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 7: LABEL DETECTIVE ============ -->
+      <section class="lo-block" id="m7">
+        <div class="mission-header-row">
+          <h2>🏷️ Mission 7: Label Detective</h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="7">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m7">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m7">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m7">
+          <p>Every packaged food has a nutrition label — and you can calculate its energy yourself, without trusting the printed number.</p>
+
+          <div class="diagram-box" style="max-width:320px;">
+            <svg viewBox="0 0 260 200">
+              <rect x="5" y="5" width="250" height="190" fill="#fff" stroke="var(--ink)" stroke-width="2"/>
+              <text x="15" y="26" font-size="13" font-weight="700" fill="var(--ink)">Nutrition Facts</text>
+              <line x1="10" y1="34" x2="250" y2="34" stroke="var(--ink)" stroke-width="2"/>
+              <text x="15" y="50" font-size="10" fill="var(--ink)">Per 100 g</text>
+              <line x1="10" y1="58" x2="250" y2="58" stroke="var(--line)"/>
+              <text x="15" y="74" font-size="10" fill="var(--ink)">Energy</text><text x="245" y="74" text-anchor="end" font-size="10" fill="var(--ink)">? kcal</text>
+              <text x="15" y="92" font-size="10" fill="var(--ink)">Carbohydrate</text><text x="245" y="92" text-anchor="end" font-size="10" fill="var(--ink)">30 g</text>
+              <text x="15" y="110" font-size="10" fill="var(--ink)">Protein</text><text x="245" y="110" text-anchor="end" font-size="10" fill="var(--ink)">5 g</text>
+              <text x="15" y="128" font-size="10" fill="var(--ink)">Fat</text><text x="245" y="128" text-anchor="end" font-size="10" fill="var(--ink)">10 g</text>
+              <line x1="10" y1="136" x2="250" y2="136" stroke="var(--line)"/>
+              <text x="15" y="152" font-size="10" fill="var(--ink)">Fibre</text><text x="245" y="152" text-anchor="end" font-size="10" fill="var(--ink)">3 g</text>
+              <text x="15" y="170" font-size="10" fill="var(--ink)">Salt</text><text x="245" y="170" text-anchor="end" font-size="10" fill="var(--ink)">0.4 g</text>
+              <text x="130" y="188" text-anchor="middle" font-size="8.5" fill="var(--ink-faint)">can you work out the "?"</text>
+            </svg>
+          </div>
+
+          <div class="formula-card">
+            <div class="formula">Energy = (C × 4) + (P × 4) + (F × 9)</div>
+            <div class="legend">
+              <div><b>C</b> — carbohydrate, grams</div>
+              <div><b>P</b> — protein, grams</div>
+              <div><b>F</b> — fat, grams</div>
+              <div>Answer in kcal</div>
+            </div>
+          </div>
+
+          <div class="worked">
+            <div class="label">Worked example — using the label above</div>
+            <p>
+              <em>Step 1:</em> Carbohydrate: 30 g × 4 = 120 kcal<br>
+              <em>Step 2:</em> Protein: 5 g × 4 = 20 kcal<br>
+              <em>Step 3:</em> Fat: 10 g × 9 = 90 kcal<br>
+              <em>Step 4:</em> Total = 120 + 20 + 90 = <strong>230 kcal per 100 g</strong>
+            </p>
+          </div>
+          <div class="callout callout-teal">Notice fat provides <strong>more than double</strong> the energy per gram compared to carbs or protein (9 vs 4) — that's why high-fat foods are so energy-dense.</div>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m7">
+          <div class="quiz" data-mission="7" data-explain="(20×4) + (8×4) + (5×9) = 80 + 32 + 45 = 157 kcal.">
+            <div class="quiz-q">A snack has 20 g carbs, 8 g protein, 5 g fat. Total energy?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">112 kcal</button>
+              <button class="quiz-opt" data-correct="true">157 kcal</button>
+              <button class="quiz-opt" data-correct="false">198 kcal</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="7" data-explain="Fat provides 9 kcal per gram — more than double carbohydrate or protein's 4 kcal per gram.">
+            <div class="quiz-q">Which nutrient provides the most energy per gram?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="false">Carbohydrate</button>
+              <button class="quiz-opt" data-correct="false">Protein</button>
+              <button class="quiz-opt" data-correct="true">Fat</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ MISSION 8: ABSORPTION ZONE ============ -->
+      <section class="lo-block" id="m8">
+        <div class="mission-header-row">
+          <h2>🧬 Mission 8: Absorption Zone <span class="zh zh-inline" style="font-size:0.55em;">吸收</span></h2>
+          <span class="mission-xp-tag">20 XP available</span>
+        </div>
+        <p class="mission-stars-live" data-mission="8">☆☆☆</p>
+
+        <div class="tab-switch">
+          <button class="tab-btn active" data-tab-btn="learn" data-tab-group="m8">📖 Learn</button>
+          <button class="tab-btn" data-tab-btn="challenge" data-tab-group="m8">🎮 Challenge</button>
+        </div>
+
+        <div class="tab-panel active" data-tab-panel="learn" data-tab-group="m8">
+          <p>Digested food is now tiny — but it still has to cross into the blood. The small intestine wall is specially built for exactly this job.</p>
+
+          <div class="diagram-box">
+            <svg viewBox="0 0 380 140">
+              <path d="M10 100 Q25 60 40 100 Q55 60 70 100 Q85 60 100 100 Q115 60 130 100 Q145 60 160 100 Q175 60 190 100 Q205 60 220 100 Q235 60 250 100 Q265 60 280 100 Q295 60 310 100 Q325 60 340 100 Q355 60 370 100"
+                    fill="none" stroke="var(--teal-deep)" stroke-width="3"/>
+              <line x1="10" y1="100" x2="370" y2="100" stroke="var(--bg-dark)" stroke-width="6"/>
+              <circle cx="40" cy="88" r="3" fill="var(--coral)"/>
+              <circle cx="100" cy="88" r="3" fill="var(--coral)"/>
+              <circle cx="160" cy="88" r="3" fill="var(--coral)"/>
+              <circle cx="220" cy="88" r="3" fill="var(--coral)"/>
+              <text x="190" y="128" text-anchor="middle" font-size="10" fill="var(--ink-soft)">each bump = one villus, with tiny blood vessels (red) inside</text>
+            </svg>
+            <p class="diagram-caption">Millions of finger-like <strong>villi</strong> line the small intestine, each packed with capillaries to carry nutrients away.</p>
+          </div>
+
+          <p>Three adaptations make the small intestine excellent at absorption:</p>
+          <table class="data">
+            <tr><th>Adaptation</th><th>Why it helps</th></tr>
+            <tr><td>Millions of villi</td><td>Huge increase in surface area for absorption</td></tr>
+            <tr><td>Very thin walls (one cell thick)</td><td>Short diffusion distance — nutrients cross quickly</td></tr>
+            <tr><td>Rich blood supply</td><td>Keeps carrying absorbed nutrients away, maintaining a concentration gradient</td></tr>
+          </table>
+        </div>
+
+        <div class="tab-panel" data-tab-panel="challenge" data-tab-group="m8">
+          <div class="quiz" data-mission="8" data-explain="Villi dramatically increase the surface area available for absorption, letting far more nutrients cross into the blood at once.">
+            <div class="quiz-q">What is the main advantage villi give the small intestine?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">Greatly increased surface area for absorption</button>
+              <button class="quiz-opt" data-correct="false">They produce digestive enzymes</button>
+              <button class="quiz-opt" data-correct="false">They store undigested food</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+
+          <div class="quiz" data-mission="8" data-explain="A wall one cell thick means nutrients have a very short distance to diffuse across, making absorption fast.">
+            <div class="quiz-q">Why does having very thin walls help the small intestine absorb nutrients?</div>
+            <div class="quiz-opts">
+              <button class="quiz-opt" data-correct="true">It shortens the diffusion distance, so absorption is faster</button>
+              <button class="quiz-opt" data-correct="false">It makes the intestine stronger</button>
+              <button class="quiz-opt" data-correct="false">It produces more bile</button>
+            </div>
+            <div class="quiz-feedback"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILL CHECK -->
+      <section class="lo-block" id="skills">
+        <div class="mission-header-row"><h2>🧭 Skill Check</h2></div>
+        <p style="font-size:0.94rem;color:var(--ink-soft);">Not scored — just for you. Rate how confident you feel about each skill before the final challenge.</p>
+        <div id="confidence-list">
+          <div class="confidence-row"><div>Naming the 7 nutrient groups and their functions</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Explaining the lock-and-key model of enzymes</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Explaining how temperature &amp; pH affect enzymes</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Naming digestive organs and their functions</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Matching enzymes to what they digest</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Describing what makes a diet balanced</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Calculating energy from a nutrition label</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+          <div class="confidence-row"><div>Explaining villi adaptations for absorption</div><div class="confidence-btns"><button class="conf-btn">😕</button><button class="conf-btn">🙂</button><button class="conf-btn">😄</button></div></div>
+        </div>
+      </section>
+
+      <!-- BOSS -->
+      <section class="lo-block" id="boss">
+        <div class="boss-banner">
+          <div class="m-icon">👑</div>
+          <h2 style="color:#fff;">Final Challenge: Guts Master</h2>
+          <p style="color:rgba(255,255,255,0.75);max-width:520px;margin:0 auto;">Mixed questions from every mission. Beat this and you've earned the Guts Master badge for Unit 2.</p>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="Amylase is produced in the mouth (saliva) and pancreas, and breaks starch into sugars.">
+          <div class="quiz-q">Q1. Which enzyme breaks starch down into sugars?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="true">Amylase</button>
+            <button class="quiz-opt" data-correct="false">Protease</button>
+            <button class="quiz-opt" data-correct="false">Lipase</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="Extreme heat or pH breaks the bonds holding an enzyme's active site shape together — this is denaturation, and it's permanent.">
+          <div class="quiz-q">Q2. What happens to an enzyme at extreme temperature or pH?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">It works faster forever</button>
+            <button class="quiz-opt" data-correct="true">It denatures and stops working permanently</button>
+            <button class="quiz-opt" data-correct="false">It changes which substrate it targets</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="The small intestine is where most digestion finishes (with pancreatic enzymes and bile) and where nutrients are absorbed via villi.">
+          <div class="quiz-q">Q3. Which organ is the main site of both digestion and absorption?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">Stomach</button>
+            <button class="quiz-opt" data-correct="true">Small intestine</button>
+            <button class="quiz-opt" data-correct="false">Large intestine</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="(15×4) + (2×4) + (6×9) = 60 + 8 + 54 = 122 kcal.">
+          <div class="quiz-q">Q4. A food has 15 g carbs, 2 g protein, 6 g fat. Total energy?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">88 kcal</button>
+            <button class="quiz-opt" data-correct="true">122 kcal</button>
+            <button class="quiz-opt" data-correct="false">140 kcal</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="quiz" data-mission="9" data-explain="Bile is made in the liver, stored in the gallbladder, and emulsifies fat — but it's not an enzyme itself.">
+          <div class="quiz-q">Q5. Where is bile stored before it's released into the small intestine?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt" data-correct="false">Liver</button>
+            <button class="quiz-opt" data-correct="true">Gallbladder</button>
+            <button class="quiz-opt" data-correct="false">Pancreas</button>
+          </div>
+          <div class="quiz-feedback"></div>
+        </div>
+
+        <div class="badge-shelf">
+          <div class="badge"><div class="icon">🍽️</div>Nutrient Pro</div>
+          <div class="badge"><div class="icon">🔑</div>Enzyme Ace</div>
+          <div class="badge"><div class="icon">🚇</div>Tunnel Guide</div>
+          <div class="badge"><div class="icon">🏷️</div>Label Reader</div>
+          <div class="badge"><div class="icon">👑</div>Guts Master</div>
+        </div>
+        <p style="text-align:center;font-size:0.82rem;color:var(--ink-faint);margin-top:10px;">Badges light up once your energy meter hits 100%.</p>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Unit 2 · Greedy Guts — Energy Quest · <a href="index.html">Back to map</a></div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
